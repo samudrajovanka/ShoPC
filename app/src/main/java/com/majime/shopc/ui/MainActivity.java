@@ -1,8 +1,10 @@
-package com.majime.shopc;
+package com.majime.shopc.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.majime.shopc.R;
 
 public class MainActivity extends AppCompatActivity {
 
