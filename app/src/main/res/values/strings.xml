@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ShoPC</string>
+    <string name="login_title">Login</string>
+    <string name="username_title">Username</string>
+    <string name="password_title">Password</string>
+    <string name="register_subtitle">Don’t have an account? Register</string>
+    <string name="here_register">Here</string>
+    <string name="alert_login">Username dan password tidak boleh kosong</string>
 </resources>
