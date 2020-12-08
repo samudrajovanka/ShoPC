@@ -1,8 +1,8 @@
 package com.majime.shopc.model;
 
 public interface Frequency {
-    public final int FREQUENCY = 3;
+    int FREQUENCY = 3;
 
-    public void setFrequency(int Frequency);
-    public int getFrequency();
+    void setFrequency(int Frequency);
+    int getFrequency();
 }

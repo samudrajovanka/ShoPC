@@ -77,7 +77,7 @@ public class User extends Account {
 
     public Product getWaitingListProduct(String nameProduct) {
         for(Product product: this.waitingListProducts) {
-            if(product.name.equalsIgnoreCase(nameProduct)) {
+            if(product.getName().equalsIgnoreCase(nameProduct)) {
                 return product;
             }
         }
@@ -95,7 +95,7 @@ public class User extends Account {
     public boolean removeWaitingListProduct(String nameProduct) {
         int i = 0;
         for(Product product: this.waitingListProducts) {
-            if(product.name.equalsIgnoreCase(nameProduct)) {
+            if(product.getName().equalsIgnoreCase(nameProduct)) {
                 this.removeWaitingListProduct(i);
 
                 return true;
@@ -135,7 +135,7 @@ public class User extends Account {
 
     public Product getWaitingCartProduct(String nameProduct) {
         for(Product product: this.waitingCartProducts) {
-            if(product.name.equalsIgnoreCase(nameProduct)) {
+            if(product.getName().equalsIgnoreCase(nameProduct)) {
                 return product;
             }
         }
@@ -153,7 +153,7 @@ public class User extends Account {
     public boolean removeWaitingCartProduct(String nameProduct) {
         int i = 0;
         for(Product product: this.waitingCartProducts) {
-            if(product.name.equalsIgnoreCase(nameProduct)) {
+            if(product.getName().equalsIgnoreCase(nameProduct)) {
                 this.removeWaitingCartProduct(i);
 
                 return true;

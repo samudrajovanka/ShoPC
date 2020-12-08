@@ -2,24 +2,23 @@ package com.majime.shopc.model;
 
 import java.net.URI;
 
-public class Storage extends Hardware implements Frequency, Memory {
+public class Ram extends Hardware implements Memory, Frequency{
     private int frequency;
-    private String connection;
+    private String DdrType;
     private int sizeMemory;
 
-    public Storage() {
-        super();
+    public Ram() {
         this.frequency = Frequency.FREQUENCY;
-        this.connection = "SATA";
+        DdrType = "DDR3";
         this.sizeMemory = Memory.SIZE_MEMORY;
     }
 
-    public Storage(String name, int price, int rating, int amount, URI photo, int weight,
-            int width, int height, int length, String merk, String type, int frequency,
-            String connection, int sizeMemory) {
+    public Ram(String name, int price, int rating, int amount, URI photo, int weight, int width,
+            int height, int length, String merk, String type, int frequency, String ddrType,
+            int sizeMemory) {
         super(name, price, rating, amount, photo, weight, width, height, length, merk, type);
         this.frequency = frequency;
-        this.connection = connection;
+        DdrType = ddrType;
         this.sizeMemory = sizeMemory;
     }
 
@@ -43,11 +42,12 @@ public class Storage extends Hardware implements Frequency, Memory {
         return this.sizeMemory;
     }
 
-    public void setConnection(String connection){
-        this.connection = connection;
+    public void setDdrType(String DdrType){
+        this.DdrType = DdrType;
     }
 
-    public String getConnection(){
-        return this.connection;
+    public String getDdrType(){
+        return this.DdrType;
     }
 }
+

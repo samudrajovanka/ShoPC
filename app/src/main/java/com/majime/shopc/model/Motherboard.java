@@ -1,8 +1,26 @@
 package com.majime.shopc.model;
 
-public class Motherboard extends Hardware{
+import java.net.URI;
+
+public class Motherboard extends Hardware implements Socket{
     private int pinAmount, slotAmount;
     private String supportedCpu;
+
+    public Motherboard(int pinAmount, int slotAmount, String supportedCpu) {
+        super();
+        this.pinAmount = Socket.PIN_AMOUNT;
+        this.slotAmount = 1;
+        this.supportedCpu = Socket.SUPPORTED_CPU;
+    }
+
+    public Motherboard(String name, int price, int rating, int amount, URI photo, int weight,
+            int width, int height, int length, String merk, String type, int pinAmount,
+            int slotAmount, String supportedCpu) {
+        super(name, price, rating, amount, photo, weight, width, height, length, merk, type);
+        this.pinAmount = pinAmount;
+        this.slotAmount = slotAmount;
+        this.supportedCpu = supportedCpu;
+    }
 
     public int getSlotAmount() {
         return slotAmount;
@@ -13,32 +31,22 @@ public class Motherboard extends Hardware{
     }
 
     @Override
-    public void setWidth(int width) {
-
+    public void setPinAmount(int pinAmount) {
+        this.pinAmount = pinAmount;
     }
 
     @Override
-    public int getWidth() {
-        return 0;
+    public int getPinAmount() {
+        return this.pinAmount;
     }
 
     @Override
-    public void setHeight(int height) {
-
+    public void setSupportedCpu(String supportedCpu) {
+        this.supportedCpu = supportedCpu;
     }
 
     @Override
-    public int getHeight() {
-        return 0;
-    }
-
-    @Override
-    public void setLength(int length) {
-
-    }
-
-    @Override
-    public int getLength() {
-        return 0;
+    public String getSupportedCpu() {
+        return this.supportedCpu;
     }
 }

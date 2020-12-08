@@ -2,24 +2,20 @@ package com.majime.shopc.model;
 
 import java.net.URI;
 
-public class Storage extends Hardware implements Frequency, Memory {
+public class Vga extends Hardware implements Frequency, Memory {
     private int frequency;
-    private String connection;
     private int sizeMemory;
 
-    public Storage() {
+    public Vga() {
         super();
         this.frequency = Frequency.FREQUENCY;
-        this.connection = "SATA";
         this.sizeMemory = Memory.SIZE_MEMORY;
     }
 
-    public Storage(String name, int price, int rating, int amount, URI photo, int weight,
-            int width, int height, int length, String merk, String type, int frequency,
-            String connection, int sizeMemory) {
+    public Vga(String name, int price, int rating, int amount, URI photo, int weight, int width,
+            int height, int length, String merk, String type, int frequency, int sizeMemory) {
         super(name, price, rating, amount, photo, weight, width, height, length, merk, type);
         this.frequency = frequency;
-        this.connection = connection;
         this.sizeMemory = sizeMemory;
     }
 
@@ -41,13 +37,5 @@ public class Storage extends Hardware implements Frequency, Memory {
     @Override
     public int getSizeMemory(){
         return this.sizeMemory;
-    }
-
-    public void setConnection(String connection){
-        this.connection = connection;
-    }
-
-    public String getConnection(){
-        return this.connection;
     }
 }

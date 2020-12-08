@@ -1,17 +1,10 @@
 package com.majime.shopc.model;
 
 public interface Dimension {
-
-    public void setWidth(int width);
-
-    public int getWidth();
-
-    public void setHeight(int height);
-
-    public int getHeight();
-
-    public void setLength(int length);
-
-    public int getLength();
-
+    void setWidth(int width);
+    int getWidth();
+    void setHeight(int height);
+    int getHeight();
+    void setLength(int length);
+    int getLength();
 }
