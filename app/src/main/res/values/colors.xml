@@ -9,4 +9,5 @@
     <color name="colorRed">#E22525</color>
     <color name="colorGrey_30">#4DADADAD</color>
     <color name="colorPrimary_50">#803853A1</color>
+    <color name="colorTransparent">#00000000</color>
 </resources>
