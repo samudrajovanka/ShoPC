@@ -1,19 +1,19 @@
 package com.majime.shopc.model;
 
 public class Cash extends Payment{
-    private int tax;
-
-    public int getTax() {
-        return tax;
+    public Cash() {
+        super();
     }
 
-    public void setTax(int tax) {
-        this.tax = tax;
+    public Cash(int tax) {
+        super(tax);
     }
 
     @Override
-    public int calculate(Product product) {
-        return 0;
+    public int calculate(int amountOfProduct) {
+        int total = this.getTax() + ((this.getTax() * amountOfProduct)/100);
+
+        return total;
     }
 
 }

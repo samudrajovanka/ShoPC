@@ -46,7 +46,7 @@ public class Store {
 
     public Product getProduct(String nameProduct) {
         for(Product product: this.products) {
-            if(product.name.equalsIgnoreCase(nameProduct)) {
+            if(product.getName().equalsIgnoreCase(nameProduct)) {
                 return product;
             }
         }
@@ -64,7 +64,7 @@ public class Store {
     public boolean removeProduct(String nameProduct) {
         int i = 0;
         for(Product product: this.products) {
-            if(product.name.equalsIgnoreCase(nameProduct)) {
+            if(product.getName().equalsIgnoreCase(nameProduct)) {
                 this.removeProduct(i);
 
                 return true;
@@ -84,37 +84,33 @@ public class Store {
         return true;
     }
 
-    public boolean removeAllWaitingCartProducts() {
-        if(this.products.size() == 0) return false;
-
-        for(int i = this.products.size(); i <= 0; i--) {
-            this.removeProduct(i);
-        }
-
-        return true;
-    }
-
     public int getAmountOfProduct() {
         return this.products.size();
     }
 
-    public int calculate(Product product, Shipping shipping, Payment payment) {
-        return 0;
+    public int calculate(Shipping shipping, Payment payment) {
+        int total = shipping.calculate(1) + payment.calculate(1);
+
+        return total;
     }
 
     public int calculate(ArrayList<Product> products, Shipping shipping, Payment payment) {
-        return 0;
+        int total = shipping.calculate(products.size()) + payment.calculate(products.size());
+
+        return total;
     }
 
     public boolean buy(User user, Shipping shipping, Payment payment) {
         int totalPrice = 0;
         if(user.amountOfCartProduct() == 1)
-            totalPrice = calculate(user.getWaitingCartProducts().get(0), shipping, payment);
+            totalPrice = calculate(shipping, payment);
         else
             totalPrice = calculate(user.getWaitingCartProducts(), shipping, payment);
 
         if(user.getSaldo() >= totalPrice) {
             user.setSaldo(user.getSaldo() - totalPrice);
+            user.addWaitingListProduct(user.getWaitingCartProducts());
+            user.removeAllWaitingCartProducts();
             return true;
         } else {
             return false;

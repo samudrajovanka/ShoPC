@@ -1,7 +1,15 @@
 package com.majime.shopc.model;
 
-abstract class Shipping {
+public abstract class Shipping {
     private int tax;
+
+    public Shipping() {
+        this.tax = 1000;
+    }
+
+    public Shipping(int tax) {
+        this.tax = tax;
+    }
 
     public int getTax() {
         return tax;
@@ -11,5 +19,5 @@ abstract class Shipping {
         this.tax = tax;
     }
 
-    public abstract int calculate(Product product);
+    public abstract int calculate(int amountOfProduct);
 }

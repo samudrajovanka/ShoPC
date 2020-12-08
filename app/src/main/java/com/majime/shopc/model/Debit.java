@@ -1,18 +1,18 @@
 package com.majime.shopc.model;
 
 public class Debit extends Payment{
-    private int tax;
-
-    public int getTax() {
-        return tax;
+    public Debit() {
+        super();
     }
 
-    public void setTax(int tax) {
-        this.tax = tax;
+    public Debit(int tax) {
+        super(tax);
     }
 
     @Override
-    public int calculate(Product product) {
-        return 0;
+    public int calculate(int amountOfProduct) {
+        int total = this.getTax() + ((this.getTax() * amountOfProduct)/100);
+
+        return total;
     }
 }
