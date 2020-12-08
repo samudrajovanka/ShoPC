@@ -1,7 +1,8 @@
-package com.majime.shopc.ui;
+package com.majime.shopc.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -15,6 +16,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
+import com.majime.shopc.ui.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -66,8 +68,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if(TextUtils.isEmpty(textUsername) || TextUtils.isEmpty((textPassword))) {
                     Toast.makeText(this, getString(R.string.alert_login), Toast.LENGTH_SHORT).show();
                 } else {
-                    // masuk ke screen login
-                    Toast.makeText(this, "Button Login Bisa", Toast.LENGTH_SHORT).show();
+                    // masuk ke screen main (dashboard)
+                    startActivity(new Intent(this, MainActivity.class));
                 }
                 break;
             case R.id.tv_here_register:
