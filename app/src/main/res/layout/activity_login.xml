@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_rectangle_gradient"
+    android:fillViewport="true"
+    tools:context=".ui.LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/large">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@+id/login_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/login_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/large_to_huge"
+            android:text="@string/login_title"
+            android:textAppearance="@style/TitleStyle"
+            app:layout_constraintBottom_toTopOf="@id/tv_username_title"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_username_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username_title"
+            android:textAppearance="@style/TitleInputStyle"
+            app:layout_constraintBottom_toTopOf="@id/et_username_input_login"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_username_input_login"
+            style="@style/InputStyleLogin"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_to_normal"
+            android:hint="@string/username_title"
+            app:layout_constraintBottom_toTopOf="@id/tv_password_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_password_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password_title"
+            android:textAppearance="@style/TitleInputStyle"
+            app:layout_constraintBottom_toTopOf="@id/et_password_input_login"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password_input_login"
+            style="@style/InputStyleLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/large"
+            android:hint="@string/password_title"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@id/btn_login"
+            tools:layout_editor_absoluteX="28dp"/>
+
+        <ImageButton
+            android:id="@+id/ib_toggle_password_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rect_transparant_default"
+            android:src="@drawable/ic_show_password"
+            app:layout_constraintBottom_toBottomOf="@id/et_password_input_login"
+            app:layout_constraintEnd_toEndOf="@id/et_password_input_login"
+            app:layout_constraintTop_toTopOf="@id/et_password_input_login"/>
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/normal"
+            android:text="@string/login_title"
+            app:layout_constraintBottom_toTopOf="@id/container_register_subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_register_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_register_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/register_subtitle"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_here_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/here_register"
+                android:textColor="@color/colorBlue"
+                android:layout_marginStart="@dimen/very_small"
+                app:layout_constraintBottom_toBottomOf="@id/tv_register_title"
+                app:layout_constraintStart_toEndOf="@id/tv_register_title"
+                app:layout_constraintTop_toTopOf="@id/tv_register_title"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
