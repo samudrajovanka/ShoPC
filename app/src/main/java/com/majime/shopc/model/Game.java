@@ -7,10 +7,14 @@ public class Game extends Software{
     private String developer;
 
     public Game(){
-
+        super();
+        this.genre = "Genre";
+        this.developer = "Developer";
     }
-    public Game(String name, int price, URI photo, int rating, String version, int size, String genre, String developer){
-        super(name, price, photo, rating, version, size);
+
+    public Game(String name, int price, int rating, int amount, URI photo, String version,
+            int size, String genre, String developer) {
+        super(name, price, rating, amount, photo, version, size);
         this.genre = genre;
         this.developer = developer;
     }

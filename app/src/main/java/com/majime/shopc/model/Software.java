@@ -8,10 +8,13 @@ public abstract class Software extends Product {
 
     public Software(){
         super();
+        this.version = "v.1";
+        this.size = 0;
     }
 
-    public Software(String name, int price, URI photo, int rating, String version, int size){
-        super(name, price, photo, rating);
+    public Software(String name, int price, int rating, int amount, URI photo,
+                    String version, int size) {
+        super(name, price, rating, amount, photo);
         this.version = version;
         this.size = size;
     }

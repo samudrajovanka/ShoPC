@@ -1,7 +1,7 @@
 package com.majime.shopc.model;
 
 import java.net.URI;
-import java.sql.Date;
+import java.util.Date;
 
 public abstract class LicensedSoftware extends Software {
     private String key;
@@ -9,10 +9,13 @@ public abstract class LicensedSoftware extends Software {
 
     public LicensedSoftware(){
         super();
+        this.key = "xxx";
+        this.expiration = new Date();
     }
 
-    public LicensedSoftware(String name, int price, URI photo, int rating, String version, int size, String key, Date expiration){
-        super(name, price, photo, rating, version, size);
+    public LicensedSoftware(String name, int price, int rating, int amount, URI photo,
+            String version, int size, String key, Date expiration) {
+        super(name, price, rating, amount, photo, version, size);
         this.key = key;
         this.expiration = expiration;
     }
@@ -24,4 +27,13 @@ public abstract class LicensedSoftware extends Software {
     public void setKey(String key) {
         this.key = key;
     }
+
+    public Date getExpiration() {
+        return expiration;
+    }
+
+    public void setExpiration(Date expiration) {
+        this.expiration = expiration;
+    }
+
 }
