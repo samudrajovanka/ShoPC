@@ -10,14 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.main.MainActivity"/>
+<!--            android:name=".ui.login.LoginActivity"-->
+<!--        <activity android:name=".ui.Register.RegisterActivity"/>-->
+        <activity android:name=".ui.main.MainActivity" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.Register.RegisterActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
