@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-<!--            android:name=".ui.login.LoginActivity"-->
-<!--        <activity android:name=".ui.Register.RegisterActivity"/>-->
+
+        <activity android:name=".ui.Register.RegisterActivity"/>
         <activity android:name=".ui.main.MainActivity" />
         <activity
-            android:name=".ui.Register.RegisterActivity"
+            android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
