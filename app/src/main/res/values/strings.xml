@@ -12,4 +12,14 @@
     <string name="title_profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Dashboard    -->
+    <string name="title_hardware">Hardware</string>
+    <string name="title_software">Software</string>
+    <string name="title_best_seller">Best Seller</string>
+
+    <!--Category         -->
+    <string name="title_product_category">Product Category</string>
+    <string name="title_product_name">intel core i7-10700K 3.8 Ghz</string>
+    <string name="title_product_price">Rp 5.841.000</string>
 </resources>
