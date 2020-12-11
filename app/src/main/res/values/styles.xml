@@ -33,5 +33,39 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="TitleNameProduct">
+        <item name="android:textSize">@dimen/text_huge</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
 
+    <style name="ComponentProductDetail">
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
+    </style>
+
+    <style name="PriceProductDetail">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
+    </style>
+
+    <style name="AmoutOfProduct">
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="fontFamily">@font/ubuntu_regular</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="DetailProduct">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="fontFamily">@font/ubuntu_regular</item>
+    </style>
+
+    <style name="AddToCart">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="fontFamily">@font/ubuntu_regular</item>
+    </style>
 </resources>
