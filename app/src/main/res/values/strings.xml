@@ -10,6 +10,17 @@
     <string name="title_home">Home</string>
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
+    
+    <!-- Filter Product -->
+    <string name="filter_product_sort_all">All</string>
+    <string name="filter_product_sort_motherboard">Motherboard</string>
+    <string name="filter_product_sort_processor">Processor</string>
+    <string name="filter_product_sort_ram">RAM</string>
+    <string name="filter_product_sort_vga">VGA</string>
+    <string name="filter_product_sort_storage">storage</string>
+    <string name="filter_product_sort_os">Operating System</string>
+    <string name="filter_product_sort_games">Games</string>
+    <string name="filter_product_sort_antivirus">Antivirus</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

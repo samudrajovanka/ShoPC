@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <include
+        android:id="@+id/hw_toolbar"
+        layout="@layout/toolbar"/>
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_hw_sort"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/hw_toolbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/sortbtn_hw_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_product_sort_all"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/bg_rect_blue_rad_10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/colorWhite"
+                android:textSize="13dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/sortbtn_motherboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_product_sort_motherboard"
+                app:layout_constraintLeft_toRightOf="@id/sortbtn_hw_all"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bg_rect_blue_rad_10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:backgroundTint="@color/colorGrey"
+                android:textColor="@color/colorWhite"
+                android:textSize="13dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/sortbtn_processor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_product_sort_processor"
+                app:layout_constraintLeft_toRightOf="@id/sortbtn_motherboard"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bg_rect_blue_rad_10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:backgroundTint="@color/colorGrey"
+                android:textColor="@color/colorWhite"
+                android:textSize="13dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/sortbtn_ram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_product_sort_ram"
+                app:layout_constraintLeft_toRightOf="@id/sortbtn_processor"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bg_rect_blue_rad_10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:backgroundTint="@color/colorGrey"
+                android:textColor="@color/colorWhite"
+                android:textSize="13dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/sortbtn_vga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_product_sort_vga"
+                app:layout_constraintLeft_toRightOf="@id/sortbtn_ram"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bg_rect_blue_rad_10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:backgroundTint="@color/colorGrey"
+                android:textColor="@color/colorWhite"
+                android:textSize="13dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/sortbtn_storage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_product_sort_storage"
+                app:layout_constraintLeft_toRightOf="@id/sortbtn_vga"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bg_rect_blue_rad_10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:backgroundTint="@color/colorGrey"
+                android:textColor="@color/colorWhite"
+                android:textSize="13dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </HorizontalScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hsv_hw_sort">
+
+        <GridView
+            android:id="@+id/gv_filter_product_hardware"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorLightBlue"
+            android:horizontalSpacing="@dimen/normal"
+            android:numColumns="2"
+            android:verticalSpacing="@dimen/normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_product" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
