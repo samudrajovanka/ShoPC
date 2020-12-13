@@ -82,8 +82,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.tv_here_register:
                 // pindah ke screen register
-                Intent moveIntent = new Intent(this, RegisterActivity.class);
-                startActivity(moveIntent);
+                startActivity(new Intent(this, RegisterActivity.class));
                 break;
         }
     }

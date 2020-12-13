@@ -121,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.btn_back_toolbar:
-                onBackPressed();
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
             case R.id.ib_toggle_password_register:
                 if(isClickPass) {
@@ -158,8 +158,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                          textGender, Integer.parseInt(textAge), 0);
                     Data.users.add(user);
                     Toast.makeText(this, R.string.alert_success_register, Toast.LENGTH_SHORT).show();
-                    Intent moveIntent = new Intent(this, LoginActivity.class);
-                    startActivity(moveIntent);
+                    startActivity(new Intent(this, LoginActivity.class));
                 }
                 break;
         }
