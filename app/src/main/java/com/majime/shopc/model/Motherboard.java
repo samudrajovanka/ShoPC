@@ -13,7 +13,7 @@ public class Motherboard extends Hardware implements Socket{
         this.supportedCpu = Socket.SUPPORTED_CPU;
     }
 
-    public Motherboard(String name, int price, int rating, int amount, URI photo, int weight,
+    public Motherboard(String name, int price, int rating, int amount, int photo, int weight,
             int width, int height, int length, String merk, String type, int pinAmount,
             int slotAmount, String supportedCpu) {
         super(name, price, rating, amount, photo, weight, width, height, length, merk, type);

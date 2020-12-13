@@ -13,7 +13,7 @@ public class Processor extends Hardware implements Socket, Frequency {
         this.supportedCpu = Socket.SUPPORTED_CPU;
     }
 
-    public Processor(String name, int price, int rating, int amount, URI photo, int weight,
+    public Processor(String name, int price, int rating, int amount, int photo, int weight,
             int width, int height, int length, String merk, String type, int pinAmount,
             int frequency, int coreAmount, String supportedCpu) {
         super(name, price, rating, amount, photo, weight, width, height, length, merk, type);

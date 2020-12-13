@@ -44,6 +44,17 @@ public class Store {
         return this.products;
     }
 
+    public ArrayList<Product> getProductsBestSeller() {
+        ArrayList<Product> productsBestSeller = new ArrayList<>();
+        for(Product product : this.products) {
+            if(product.getRating() >= 4) {
+                productsBestSeller.add(product);
+            }
+        }
+
+        return productsBestSeller;
+    }
+
     public Product getProduct(String nameProduct) {
         for(Product product: this.products) {
             if(product.getName().equalsIgnoreCase(nameProduct)) {

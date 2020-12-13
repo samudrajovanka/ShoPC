@@ -13,7 +13,7 @@ public abstract class LicensedSoftware extends Software {
         this.expiration = new Date();
     }
 
-    public LicensedSoftware(String name, int price, int rating, int amount, URI photo,
+    public LicensedSoftware(String name, int price, int rating, int amount, int photo,
             String version, int size, String key, Date expiration) {
         super(name, price, rating, amount, photo, version, size);
         this.key = key;

@@ -4,8 +4,7 @@ import java.net.URI;
 
 public abstract class Product {
     private String name;
-    private int price, rating, amount;
-    private URI photo;
+    private int price, rating, amount, photo;
 
     public Product() {
         this.name = "Product";
@@ -14,7 +13,7 @@ public abstract class Product {
         this.amount = 0;
     }
 
-    public Product(String name, int price, int rating, int amount, URI photo) {
+    public Product(String name, int price, int rating, int amount, int photo) {
         this.name = name;
         this.price = price;
         this.rating = rating;
@@ -38,11 +37,11 @@ public abstract class Product {
         this.price = price;
     }
 
-    public URI getPhoto() {
+    public int getPhoto() {
         return photo;
     }
 
-    public void setPhoto(URI photo) {
+    public void setPhoto(int photo) {
         this.photo = photo;
     }
 

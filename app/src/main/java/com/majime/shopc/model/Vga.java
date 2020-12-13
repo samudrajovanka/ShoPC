@@ -12,7 +12,7 @@ public class Vga extends Hardware implements Frequency, Memory {
         this.sizeMemory = Memory.SIZE_MEMORY;
     }
 
-    public Vga(String name, int price, int rating, int amount, URI photo, int weight, int width,
+    public Vga(String name, int price, int rating, int amount, int photo, int weight, int width,
             int height, int length, String merk, String type, int frequency, int sizeMemory) {
         super(name, price, rating, amount, photo, weight, width, height, length, merk, type);
         this.frequency = frequency;

@@ -16,7 +16,7 @@ public class Hardware extends Product implements Dimension {
         this.type = "Type";
     }
 
-    public Hardware(String name, int price, int rating, int amount, URI photo, int weight,
+    public Hardware(String name, int price, int rating, int amount, int photo, int weight,
                     int width, int height, int length, String merk, String type) {
         super(name, price, rating, amount, photo);
         this.weight = weight;

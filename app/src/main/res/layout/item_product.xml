@@ -1,61 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="150dp"
+    android:layout_width="135dp"
     android:layout_height="195dp"
     android:background="@drawable/bg_rect_blue_rad_10"
     android:backgroundTint="@color/colorWhite"
     android:elevation="2dp">
+
+    <ImageView
+        android:id="@+id/iv_product_photo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_rect_blue_rad_10"
+        android:backgroundTint="@color/colorTransparent"
+        android:src="@drawable/ic_processor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_product_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_rect_transparent_primary_rad_10"
-        android:fontFamily="@font/ubuntu_regular"
-        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/very_small_to_small"
+        android:paddingTop="3dp"
+        android:paddingEnd="@dimen/very_small_to_small"
+        android:paddingBottom="3dp"
         android:text="@string/title_product_category"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/text_small"
-        android:translationZ="@dimen/small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_product_photo"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/ic_processor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_product_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/very_small_to_small"
         android:layout_marginTop="@dimen/very_small_to_small"
+        android:layout_marginEnd="@dimen/very_small_to_small"
+        android:ellipsize="end"
         android:fontFamily="@font/ubuntu_regular"
+        android:maxLines="2"
         android:text="@string/title_product_name"
         android:textColor="@color/colorBlack"
-        android:textSize="14sp"
+        android:textSize="@dimen/text_normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_product_photo" />
+        app:layout_constraintTop_toBottomOf="@id/iv_product_photo"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_product_price"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/very_small_to_small"
         android:layout_marginTop="@dimen/very_small"
+        android:layout_marginEnd="@dimen/very_small_to_small"
+        android:ellipsize="end"
         android:fontFamily="@font/ubuntu_regular"
+        android:maxLines="1"
         android:text="@string/title_product_price"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/text_normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_product_name" />
+        app:layout_constraintTop_toBottomOf="@id/tv_product_name"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_product_rating"
@@ -74,7 +84,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_star"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/iv_rating_star_2"
@@ -82,7 +92,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_star"
             app:layout_constraintStart_toEndOf="@id/iv_rating_star_1"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/iv_rating_star_3"
@@ -90,7 +100,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_star"
             app:layout_constraintStart_toEndOf="@id/iv_rating_star_2"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/iv_rating_star_4"
@@ -98,7 +108,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_star"
             app:layout_constraintStart_toEndOf="@id/iv_rating_star_3"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/iv_rating_star_5"
@@ -106,7 +116,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_star"
             app:layout_constraintStart_toEndOf="@id/iv_rating_star_4"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
