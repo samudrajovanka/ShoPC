@@ -78,7 +78,7 @@
             android:id="@+id/ib_toggle_password_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_rect_transparant_default"
+            android:background="@drawable/bg_rect_transparent_default"
             android:src="@drawable/ic_show_password"
             app:layout_constraintBottom_toBottomOf="@id/et_password_input_login"
             app:layout_constraintEnd_toEndOf="@id/et_password_input_login"

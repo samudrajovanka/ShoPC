@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".ui.Register.RegisterActivity"/>
+        <activity android:name=".ui.register.RegisterActivity"/>
         <activity android:name=".ui.main.MainActivity" />
         <activity
             android:name=".ui.login.LoginActivity"

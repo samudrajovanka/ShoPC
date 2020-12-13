@@ -17,6 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
 import com.majime.shopc.ui.main.MainActivity;
+import com.majime.shopc.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -74,7 +75,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.tv_here_register:
                 // pindah ke screen register
-                Toast.makeText(this, "Button Register Bisa", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Button Register Bisa", Toast.LENGTH_SHORT).show();
+                Intent moveIntent = new Intent(this, RegisterActivity.class);
+                startActivity(moveIntent);
                 break;
         }
     }
