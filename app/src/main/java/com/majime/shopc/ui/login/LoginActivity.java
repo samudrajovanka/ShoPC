@@ -12,10 +12,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
+import com.majime.shopc.data.Data;
+import com.majime.shopc.model.User;
 import com.majime.shopc.ui.main.MainActivity;
 import com.majime.shopc.ui.register.RegisterActivity;
 
@@ -67,15 +68,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 textPassword = etPassword.getText().toString().toLowerCase().trim();
 
                 if(TextUtils.isEmpty(textUsername) || TextUtils.isEmpty((textPassword))) {
-                    Toast.makeText(this, getString(R.string.alert_login), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.alert_login, Toast.LENGTH_SHORT).show();
                 } else {
                     // masuk ke screen main (dashboard)
-                    startActivity(new Intent(this, MainActivity.class));
+                    for(User user: Data.users) {
+                        if(user.getUsername().equals(textUsername) && user.getPassword().equals(textPassword)) {
+                            startActivity(new Intent(this, MainActivity.class));
+                        }
+                    }
+                    Toast.makeText(this, R.string.alert_failed_login, Toast.LENGTH_SHORT).show();
+
                 }
                 break;
             case R.id.tv_here_register:
                 // pindah ke screen register
-                //Toast.makeText(this, "Button Register Bisa", Toast.LENGTH_SHORT).show();
                 Intent moveIntent = new Intent(this, RegisterActivity.class);
                 startActivity(moveIntent);
                 break;

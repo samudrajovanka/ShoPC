@@ -1,5 +1,6 @@
 package com.majime.shopc.ui.register;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -18,6 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
+import com.majime.shopc.data.Data;
+import com.majime.shopc.model.User;
+import com.majime.shopc.ui.login.LoginActivity;
 import com.majime.shopc.utils.CustomTextWacther;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -150,7 +154,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if(!textPassword.equals(textConfirmPassword)) {
                     Toast.makeText(this, R.string.alert_confirm_password, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, "btn register bisa cok", Toast.LENGTH_SHORT).show();
+                    User user = new User(textUsername, textPassword, textName, textAddress,
+                                         textGender, Integer.parseInt(textAge), 0);
+                    Data.users.add(user);
+                    Toast.makeText(this, R.string.alert_success_register, Toast.LENGTH_SHORT).show();
+                    Intent moveIntent = new Intent(this, LoginActivity.class);
+                    startActivity(moveIntent);
                 }
                 break;
         }
