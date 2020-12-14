@@ -29,6 +29,33 @@
     <string name="filter_product_sort_os">Operating System</string>
     <string name="filter_product_sort_games">Games</string>
     <string name="filter_product_sort_antivirus">Antivirus</string>
+    <string name="name_product">Intel core i7-10700K 3.8 Ghz</string>
+    <string name="product_component_detail">Processor</string>
+    <string name="price_product_detail">Rp 5.841.000</string>
+    <string name="amount_of_product">Amount of Product : 12</string>
+    <string name="merk_product">Merk</string>
+    <string name="type_product">Type</string>
+    <string name="pin_product">Pin</string>
+    <string name="socket_product">Socket</string>
+    <string name="core_product">Core</string>
+    <string name="weight_product">Weight</string>
+    <string name="height_product">Height</string>
+    <string name="width_product">Width</string>
+    <string name="length_product">Length</string>
+    <string name="frequency_product">Frequency</string>
+    <string name="value_merk_product">Intel</string>
+    <string name="value_type_product">i7</string>
+    <string name="value_pin_product">1331</string>
+    <string name="value_socket_product">LGA</string>
+    <string name="value_core_product">8</string>
+    <string name="value_weight_product">6 gram</string>
+    <string name="value_height_product">6 cm</string>
+    <string name="value_width_product">9 cm</string>
+    <string name="value_length_product">6 cm</string>
+    <string name="value_frequency_product">5 GHz</string>
+    <string name="add_to_cart">Add to Cart</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="alert_confirm_password">Password and Password Confirmation is incorrect</string>
