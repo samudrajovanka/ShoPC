@@ -71,12 +71,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Toast.makeText(this, R.string.alert_login, Toast.LENGTH_SHORT).show();
                 } else {
                     // masuk ke screen main (dashboard)
+                    boolean isValid = false;
                     for(User user: Data.users) {
                         if(user.getUsername().equals(textUsername) && user.getPassword().equals(textPassword)) {
-                            startActivity(new Intent(this, MainActivity.class));
+                            isValid = true;
+                            break;
+
                         }
                     }
-                    Toast.makeText(this, R.string.alert_failed_login, Toast.LENGTH_SHORT).show();
+
+                    if(isValid) {
+                        startActivity(new Intent(this, MainActivity.class));
+                    } else {
+                        Toast.makeText(this, R.string.alert_failed_login, Toast.LENGTH_SHORT).show();
+                    }
 
                 }
                 break;
