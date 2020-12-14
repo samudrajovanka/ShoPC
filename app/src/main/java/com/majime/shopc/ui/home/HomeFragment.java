@@ -1,6 +1,5 @@
 package com.majime.shopc.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -62,21 +59,40 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     }
 
     private void showGridView() {
+        rvBestSeller.setHasFixedSize(true);
         rvBestSeller.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         ProductAdapter productAdapter = new ProductAdapter(getActivity(), Data.store.getProductsBestSeller());
-        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.normal);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.normal, true);
         rvBestSeller.addItemDecoration(itemDecoration);
         rvBestSeller.setAdapter(productAdapter);
+    }
+
+    private boolean loadFragment(Fragment fragment) {
+        if (fragment != null) {
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fl_fragment_main, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.btn_dashboard_category_hardware:
-                Toast.makeText(getActivity(), "Category: Hardware", Toast.LENGTH_SHORT).show();
+                Bundle bundleHardware = new Bundle();
+                bundleHardware.putString(FilterProductFragment.key, getString(R.string.title_hardware));
+                Fragment fragmentHardware = new FilterProductFragment();
+                fragmentHardware.setArguments(bundleHardware);
+                loadFragment(fragmentHardware);
                 break;
             case R.id.btn_dashboard_category_software:
-                Toast.makeText(getActivity(), "Category: Software", Toast.LENGTH_SHORT).show();
+                Bundle bundleSoftware = new Bundle();
+                bundleSoftware.putString(FilterProductFragment.key, getString(R.string.title_software));
+                Fragment fragmentSoftware = new FilterProductFragment();
+                fragmentSoftware.setArguments(bundleSoftware);
+                loadFragment(fragmentSoftware);
                 break;
         }
     }

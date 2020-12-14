@@ -1,5 +1,7 @@
 package com.majime.shopc.model;
 
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class Store {
@@ -53,6 +55,26 @@ public class Store {
         }
 
         return productsBestSeller;
+    }
+
+    public ArrayList<Product> getProductsByTitle(String title) {
+        ArrayList<Product> products = new ArrayList<>();
+
+        if(title.equals("Hardware")) {
+            for(Product product : this.products) {
+                if(product instanceof  Hardware) {
+                    products.add(product);
+                }
+            }
+        } else {
+            for(Product product : this.products) {
+                if(product instanceof  Software) {
+                    products.add(product);
+                }
+            }
+        }
+
+        return products;
     }
 
     public Product getProduct(String nameProduct) {

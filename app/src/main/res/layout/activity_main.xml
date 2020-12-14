@@ -17,11 +17,11 @@
         android:id="@+id/bnv_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/colorWhite"
-        app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@drawable/bnv_icon_state"
         app:itemTextColor="@drawable/bnv_icon_state"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

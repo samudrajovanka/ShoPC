@@ -50,72 +50,72 @@ public class FilterProductSoftwareFragment extends Fragment {
     }
 
     private void initiateUi(View view) {
-        final MaterialTextView all = view.findViewById(R.id.sortbtn_sw_all);
-        final MaterialTextView os = view.findViewById(R.id.sortbtn_os);
-        final MaterialTextView games = view.findViewById(R.id.sortbtn_games);
-        final MaterialTextView antivirus = view.findViewById(R.id.sortbtn_antivirus);
-        GridView gridview = view.findViewById(R.id.gv_filter_product_software);
-        com.majime.shopc.adapter.ProductAdapter productAdapter = new ProductAdapter(productCategory,
-                productName, productImage, productPrice, productRating, getActivity());
-
-        gridview.setAdapter(productAdapter);
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //  Untuk masuk ke detail product
-                /*
-                String selectedName = productName[i];
-                int selectedImage = productImage[i];
-                startActivity(new Intent(MainActivity.this,ClickedItemActivity.class).putExtra("name",selectedName).putExtra("image",selectedImage));
-                */
-
-                Toast.makeText(getActivity(), "Item " + i + " clicked.", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        all.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Category: All", Toast.LENGTH_SHORT).show();
-                all.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
-                os.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-                games.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-                antivirus.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-            }
-        });
-
-        os.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Category: Operating System", Toast.LENGTH_SHORT).show();
-                all.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-                os.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
-                games.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-                antivirus.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-            }
-        });
-
-        games.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Category: Games", Toast.LENGTH_SHORT).show();
-                all.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-                os.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-                games.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
-                antivirus.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-            }
-        });
-
-        antivirus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Category: Antivirus", Toast.LENGTH_SHORT).show();
-                all.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-                os.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-                games.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
-                antivirus.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
-            }
-        });
+        //final MaterialTextView all = view.findViewById(R.id.sortbtn_sw_all);
+        //final MaterialTextView os = view.findViewById(R.id.sortbtn_os);
+        //final MaterialTextView games = view.findViewById(R.id.sortbtn_games);
+        //final MaterialTextView antivirus = view.findViewById(R.id.sortbtn_antivirus);
+        //GridView gridview = view.findViewById(R.id.gv_filter_product_software);
+        //com.majime.shopc.adapter.ProductAdapter productAdapter = new ProductAdapter(productCategory,
+        //        productName, productImage, productPrice, productRating, getActivity());
+        //
+        //gridview.setAdapter(productAdapter);
+        //gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //    @Override
+        //    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        //        //  Untuk masuk ke detail product
+        //        /*
+        //        String selectedName = productName[i];
+        //        int selectedImage = productImage[i];
+        //        startActivity(new Intent(MainActivity.this,ClickedItemActivity.class).putExtra("name",selectedName).putExtra("image",selectedImage));
+        //        */
+        //
+        //        Toast.makeText(getActivity(), "Item " + i + " clicked.", Toast.LENGTH_SHORT).show();
+        //    }
+        //});
+        //
+        //all.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        Toast.makeText(getActivity(), "Category: All", Toast.LENGTH_SHORT).show();
+        //        all.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
+        //        os.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //        games.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //        antivirus.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //    }
+        //});
+        //
+        //os.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        Toast.makeText(getActivity(), "Category: Operating System", Toast.LENGTH_SHORT).show();
+        //        all.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //        os.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
+        //        games.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //        antivirus.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //    }
+        //});
+        //
+        //games.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        Toast.makeText(getActivity(), "Category: Games", Toast.LENGTH_SHORT).show();
+        //        all.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //        os.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //        games.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
+        //        antivirus.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //    }
+        //});
+        //
+        //antivirus.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        Toast.makeText(getActivity(), "Category: Antivirus", Toast.LENGTH_SHORT).show();
+        //        all.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //        os.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //        games.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimary));
+        //        antivirus.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+        //    }
+        //});
 
     }
 }
