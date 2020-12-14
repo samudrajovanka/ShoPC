@@ -20,6 +20,7 @@ import com.majime.shopc.data.Data;
 import com.majime.shopc.utils.ItemOffsetDecoration;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class FilterProductFragment extends Fragment implements View.OnClickListener {
     public static final String key = "TITLE";
@@ -47,7 +48,7 @@ public class FilterProductFragment extends Fragment implements View.OnClickListe
         MaterialTextView titleToolbar = view.findViewById(R.id.tv_toolbar);
         rvFilterProduct = view.findViewById(R.id.rv_filter_product);
         rvListFilter = view.findViewById(R.id.rv_item_list);
-        title = getArguments().getString("TITLE");
+        title = getArguments().getString(FilterProductFragment.key);
 
         // set toolbar
         titleToolbar.setText(title);
@@ -59,27 +60,23 @@ public class FilterProductFragment extends Fragment implements View.OnClickListe
 
     private void showRecylerViewList() {
         ArrayList<String> list = new ArrayList<>();
+        String[] componentHardware = getResources().getStringArray(R.array.component_product_hardware);
+        String[] componentSoftware = getResources().getStringArray(R.array.component_product_software);
         list.add("All");
 
         if(title.equals(getString(R.string.title_hardware))) {
-            list.add("Motherboard");
-            list.add("Processor");
-            list.add("RAM");
-            list.add("VGA");
-            list.add("Storage");
+            Collections.addAll(list, componentHardware);
         } else {
-            list.add("Operating System");
-            list.add("Games");
-            list.add("Antivirus");
+            Collections.addAll(list, componentSoftware);
         }
 
         rvListFilter.setHasFixedSize(true);
         rvListFilter.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        ListAdapter listHeroAdapter = new ListAdapter(getActivity(), list, productAdapter);
+        ListAdapter listAdapter = new ListAdapter(list, productAdapter);
         ItemOffsetDecoration
                 itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.small_to_normal, false);
         rvListFilter.addItemDecoration(itemDecoration);
-        rvListFilter.setAdapter(listHeroAdapter);
+        rvListFilter.setAdapter(listAdapter);
     }
 
     private void showGridView() {

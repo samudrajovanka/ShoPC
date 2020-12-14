@@ -1,6 +1,7 @@
 package com.majime.shopc.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.majime.shopc.model.Product;
 import com.majime.shopc.model.Ram;
 import com.majime.shopc.model.Storage;
 import com.majime.shopc.model.Vga;
+import com.majime.shopc.ui.product_detail.ProductDetailActivity;
 import com.majime.shopc.utils.ExtraFunc;
 
 import java.util.ArrayList;
@@ -153,48 +155,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             tvName.setText(product.getName());
             tvPrice.setText("Rp. " + ExtraFunc.convertPrice((product.getPrice())));
 
-            switch(product.getRating()) {
-                case 1:
-                    ivRating1.setVisibility(View.VISIBLE);
-                    ivRating2.setVisibility(View.GONE);
-                    ivRating3.setVisibility(View.GONE);
-                    ivRating4.setVisibility(View.GONE);
-                    ivRating5.setVisibility(View.GONE);
-                    break;
-                case 2:
-                    ivRating1.setVisibility(View.VISIBLE);
-                    ivRating2.setVisibility(View.VISIBLE);
-                    ivRating3.setVisibility(View.GONE);
-                    ivRating4.setVisibility(View.GONE);
-                    ivRating5.setVisibility(View.GONE);
-                    break;
-                case 3:
-                    ivRating1.setVisibility(View.VISIBLE);
-                    ivRating2.setVisibility(View.VISIBLE);
-                    ivRating3.setVisibility(View.VISIBLE);
-                    ivRating4.setVisibility(View.GONE);
-                    ivRating5.setVisibility(View.GONE);
-                    break;
-                case 4:
-                    ivRating1.setVisibility(View.VISIBLE);
-                    ivRating2.setVisibility(View.VISIBLE);
-                    ivRating3.setVisibility(View.VISIBLE);
-                    ivRating4.setVisibility(View.VISIBLE);
-                    ivRating5.setVisibility(View.GONE);
-                    break;
-                case 5:
-                    ivRating1.setVisibility(View.VISIBLE);
-                    ivRating2.setVisibility(View.VISIBLE);
-                    ivRating3.setVisibility(View.VISIBLE);
-                    ivRating4.setVisibility(View.VISIBLE);
-                    ivRating5.setVisibility(View.VISIBLE);
-                    break;
-            }
+            ExtraFunc.setStarRating(product.getRating(), ivRating1, ivRating2, ivRating3, ivRating4, ivRating5);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(context, "Test " + product.getRating(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, product.getName(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, ProductDetailActivity.class);
+                    intent.putExtra(ProductDetailActivity.key_name, product.getName());
+                    context.startActivity(intent);
                 }
             });
         }

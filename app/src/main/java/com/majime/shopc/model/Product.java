@@ -1,5 +1,8 @@
 package com.majime.shopc.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.net.URI;
 
 public abstract class Product {

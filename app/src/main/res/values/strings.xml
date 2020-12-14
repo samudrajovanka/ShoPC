@@ -21,23 +21,29 @@
 
     <!-- Filter Product -->
     <string name="filter_product_sort_all">All</string>
-    <string name="filter_product_sort_motherboard">Motherboard</string>
-    <string name="filter_product_sort_processor">Processor</string>
-    <string name="filter_product_sort_ram">RAM</string>
-    <string name="filter_product_sort_vga">VGA</string>
-    <string name="filter_product_sort_storage">storage</string>
-    <string name="filter_product_sort_os">Operating System</string>
-    <string name="filter_product_sort_games">Games</string>
-    <string name="filter_product_sort_antivirus">Antivirus</string>
-    <string name="name_product">Intel core i7-10700K 3.8 Ghz</string>
+    <string-array name="component_product_hardware">
+        <item>Motherboard</item>
+        <item>Processor</item>
+        <item>RAM</item>
+        <item>VGA</item>
+        <item>Storage</item>
+    </string-array>
+
+    <string-array name="component_product_software">
+        <item>Operating System</item>
+        <item>Games</item>
+        <item>Antivirus</item>
+    </string-array>
+
     <string name="product_component_detail">Processor</string>
-    <string name="price_product_detail">Rp 5.841.000</string>
-    <string name="amount_of_product">Amount of Product : 12</string>
+    <string name="amount_of_product_title">Amount of Product :</string>
+    <string name="amount_of_product">12</string>
     <string name="merk_product">Merk</string>
     <string name="type_product">Type</string>
     <string name="pin_product">Pin</string>
     <string name="socket_product">Socket</string>
     <string name="core_product">Core</string>
+    <string name="slot_product">Slot</string>
     <string name="weight_product">Weight</string>
     <string name="height_product">Height</string>
     <string name="width_product">Width</string>
@@ -75,6 +81,16 @@
 
     <!--Category         -->
     <string name="title_product_category">Product Category</string>
-    <string name="title_product_name">intel core i7-10700K 3.8 Ghz</string>
-    <string name="title_product_price">Rp 5.841.000</string>
+    <string name="product_name">intel core i7-10700K 3.8 Ghz</string>
+    <string name="product_price">Rp 5.841.000</string>
+    <string name="memory_product">Memory</string>
+    <string name="ddr_type_product">DDR Type</string>
+    <string name="connection_product">Connection</string>
+    <string name="genre_product">Genre</string>
+    <string name="developer_product">Developer</string>
+    <string name="key_product">Key</string>
+    <string name="expiration_date_product">Expiration Date</string>
+    <string name="type_os_product">Type</string>
+    <string name="version_soft_product">Version</string>
+    <string name="size_soft_product">Size</string>
 </resources>

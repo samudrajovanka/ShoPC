@@ -4,14 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.majime.shopc.R;
-import com.majime.shopc.model.Product;
 
 import java.util.ArrayList;
 
@@ -19,10 +17,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     private ArrayList<String> list;
     private ArrayList<Boolean> isActive = new ArrayList<>();
     private ProductAdapter productAdapter;
-    private Context context;
 
-    public ListAdapter(Context context, ArrayList<String> list, ProductAdapter productAdapter) {
-        this.context = context;
+    public ListAdapter(ArrayList<String> list, ProductAdapter productAdapter) {
         this.list = list;
         this.productAdapter = productAdapter;
         this.isActive.add(true);
