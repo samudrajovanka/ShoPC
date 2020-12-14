@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.majime.shopc.R;
 import com.majime.shopc.model.Product;
+import com.majime.shopc.utils.ExtraFunc;
 
 import java.util.ArrayList;
 
@@ -67,7 +68,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             tvCategory.setText(product.getClass().getSimpleName());
             imageView.setImageResource(product.getPhoto());
             tvName.setText(product.getName());
-            tvPrice.setText("Rp. "+ product.getPrice());
+            tvPrice.setText("Rp. " + ExtraFunc.convertPrice((product.getPrice())));
+
 
             switch(product.getRating()) {
                 case 1:
