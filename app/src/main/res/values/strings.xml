@@ -8,6 +8,7 @@
     <string name="gender_title">Gender</string>
     <string name="confirm_password_title">Confirm Password</string>
     <string name="register_title">Register</string>
+    <string name="add_saldo">Add Saldo</string>
     <string name="password_title">Password</string>
     <string name="register_subtitle">Don’t have an account? Register</string>
     <string name="here_register">Here</string>
@@ -17,6 +18,7 @@
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
     <string name="male">Male</string>
+    <string name="amount_title">Enter Amount</string>
     <string name="female">Female</string>
 
     <!-- Filter Product -->
@@ -93,4 +95,17 @@
     <string name="type_os_product">Type</string>
     <string name="version_soft_product">Version</string>
     <string name="size_soft_product">Size</string>
+    <string name="title_activity_add_saldo">add_saldo</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="amount">Rp 0</string>
+    <string name="payment_method_title">Payment Method</string>
+    <string name="cash">Cash</string>
+    <string name="debit">debit</string>
+    <string name="confirm">confirm</string>
+    <string name="debit_id">xxxx-xxxx-xxxx-xxxx-xxxx</string>
+    <string name="debit_id_title">Debit ID</string>
 </resources>
