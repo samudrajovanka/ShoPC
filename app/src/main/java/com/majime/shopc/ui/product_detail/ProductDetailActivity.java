@@ -150,7 +150,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                 titles.add(getString(R.string.key_product));
                 values.add(((LicensedSoftware) product).getKey());
 
-                DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 titles.add(getString(R.string.expiration_date_product));
                 values.add(dateFormat.format(((LicensedSoftware) product).getExpiration()));
             }
