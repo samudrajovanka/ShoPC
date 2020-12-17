@@ -93,4 +93,9 @@
     <string name="type_os_product">Type</string>
     <string name="version_soft_product">Version</string>
     <string name="size_soft_product">Size</string>
+
+    <!--Profile     -->
+    <string name="profile_name">Jovanka Samudra</string>
+    <string name="profile_username">samudrajovanka</string>
+    <string name="edit_profile">Edit Profile</string>
 </resources>

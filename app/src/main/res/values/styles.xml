@@ -89,4 +89,40 @@
         <item name="android:textSize">@dimen/text_normal</item>
         <item name="fontFamily">@font/ubuntu_regular</item>
     </style>
+
+    <style name="ProfileName">
+        <item name="android:textSize">@dimen/normal_to_large</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="ProfileUsername">
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:textSize">@dimen/small</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
+    </style>
+    
+    <style name="AddSaldo">
+        <item name="android:textSize">@dimen/normal</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="fontFamily">@font/ubuntu_regular</item>
+    </style>
+
+    <style name="SaldoDetail">
+        <item name="android:textSize">@dimen/normal</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="fontFamily">@font/ubuntu_bold</item>
+    </style>
+
+    <style name="NominalSaldo">
+        <item name="android:textSize">@dimen/normal</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="fontFamily">@font/ubuntu_regular</item>
+    </style>
+
+    <style name="EditProfile">
+        <item name="android:textSize">@dimen/normal</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/ubuntu_regular</item>
+    </style>
 </resources>
