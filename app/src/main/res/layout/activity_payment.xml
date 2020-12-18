@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightBlue"
+    tools:context=".ui.payment.PaymentActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/small_to_normal"
+            android:id="@+id/rv_product_payment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/container_payment"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_product_payment"/>
+
+        <ScrollView
+            android:id="@+id/container_payment"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:background="@color/colorWhite"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toTopOf="@id/container_detail_price">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_data_user_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/large"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_address_title_payment"
+                        style="@style/TextNormalBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/address_title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_address_user_payment"
+                        style="@style/InputStyleLogin"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintTop_toBottomOf="@id/tv_address_title_payment"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_shipping_title_payment"
+                        style="@style/TextNormalBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small_to_normal"
+                        android:text="@string/shipping_title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/et_address_user_payment"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_shipping_user_payment"
+                        style="@style/InputStyleLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintTop_toBottomOf="@id/tv_shipping_title_payment"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_arrow_down"
+                        app:layout_constraintBottom_toBottomOf="@id/spinner_shipping_user_payment"
+                        app:layout_constraintEnd_toEndOf="@id/spinner_shipping_user_payment"
+                        app:layout_constraintTop_toTopOf="@id/spinner_shipping_user_payment"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/v_line_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/colorBlue"
+                    app:layout_constraintTop_toBottomOf="@id/container_data_user_payment"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_payment_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/large"
+                    app:layout_constraintTop_toBottomOf="@id/v_line_payment">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_title_payment_method"
+                        style="@style/TextLargeWhite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_payment_method"
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/container_btn_cash_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="@dimen/small"
+                        android:background="@drawable/bg_rect_grad_primary_dark_primary_rad_10"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title_payment_method">
+
+                        <ImageView
+                            android:id="@+id/iv_cash_payment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/very_small_to_small"
+                            android:src="@drawable/ic_cash"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_cash_payment"
+                            style="@style/TextNormalWhite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/very_small"
+                            android:text="@string/title_cash"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_cash_payment"
+                            app:layout_constraintStart_toEndOf="@id/iv_cash_payment"
+                            app:layout_constraintTop_toTopOf="@+id/iv_cash_payment"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/container_btn_debit_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="@dimen/small_to_normal"
+                        android:alpha="0.5"
+                        android:background="@drawable/bg_rect_grad_primary_dark_primary_rad_10"
+                        app:layout_constraintTop_toBottomOf="@id/container_btn_cash_payment">
+
+                        <ImageView
+                            android:id="@+id/iv_debit_payment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/very_small_to_small"
+                            android:src="@drawable/ic_debit"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_debit_payment"
+                            style="@style/TextNormalWhite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/very_small"
+                            android:text="@string/title_debit"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_debit_payment"
+                            app:layout_constraintStart_toEndOf="@id/iv_debit_payment"
+                            app:layout_constraintTop_toTopOf="@id/iv_debit_payment"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_debit_id_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/large"
+                    android:paddingEnd="@dimen/large"
+                    android:paddingBottom="@dimen/large"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/container_payment_method">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_debit_id"
+                        style="@style/TextLargeWhite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/small"
+                        android:text="@string/title_debit_id"
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintBottom_toTopOf="@id/et_debit_id_payment"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_debit_id_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_rect_primary_rad_10"
+                        android:gravity="center"
+                        android:maxLength="16"
+                        android:inputType="number"
+                        android:hint="@string/hint_debit_id"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorGrey"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_detail_price"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@color/colorBlue"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextNormalWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginTop="@dimen/very_small_to_small"
+                android:text="@string/total_price"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextLargeWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginBottom="@dimen/very_small_to_small"
+                android:text="@string/product_price"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_btn_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_rect_primary_radstart_10"
+                android:gravity="center"
+                android:paddingStart="46dp"
+                android:paddingEnd="46dp"
+                android:text="@string/title_pay"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_huge"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
