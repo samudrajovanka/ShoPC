@@ -23,10 +23,6 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".ui.addSaldo.addSaldoActivity"/>
-        <activity android:name=".ui.login.LoginActivity" />
-        <activity android:name=".ui.register.RegisterActivity" />
-        <activity android:name=".ui.main.MainActivity" />
-        <activity android:name=".ui.product_detail.ProductDetailActivity" />
         <activity
             android:name=".ui.splashscreen.SplashScreenActivity"
             android:screenOrientation="portrait">

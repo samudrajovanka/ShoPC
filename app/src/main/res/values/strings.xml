@@ -63,7 +63,6 @@
     <string name="value_frequency_product">5 GHz</string>
     <string name="add_to_cart">Add to Cart</string>
 
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="alert_confirm_password">Password and Password Confirmation is incorrect</string>
@@ -118,4 +117,14 @@
     <string name="confirm">confirm</string>
     <string name="debit_id">xxxx-xxxx-xxxx-xxxx-xxxx</string>
     <string name="debit_id_title">Debit ID</string>
+    <string name="total_price">Total Price</string>
+    <string name="title_pay">Pay</string>
+    <string name="title_debit_id">Debit id</string>
+    <string name="hint_debit_id">xxxx-xxxx-xxxx-xxxx</string>
+    <string name="title_payment_method">Payment Method :</string>
+    <string name="title_cash">Cash</string>
+    <string name="title_debit">Debit</string>
+    <string name="shipping_title">Shipping</string>
+    <string name="amount_product_buy">x2</string>
+    <string name="paymeny_title">Payment</string>
 </resources>

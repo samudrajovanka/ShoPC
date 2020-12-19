@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/name_title"
-            android:textAppearance="@style/TitleInputStyleNotLogin"
+            android:textAppearance="@style/TextNormalBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_to_normal"
             android:text="@string/address_title"
-            android:textAppearance="@style/TitleInputStyleNotLogin"
+            android:textAppearance="@style/TextNormalBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_name_input_register"/>
 
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_to_normal"
             android:text="@string/age_title"
-            android:textAppearance="@style/TitleInputStyleNotLogin"
+            android:textAppearance="@style/TextNormalBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_address_input_register"/>
 
@@ -89,7 +89,7 @@
             android:layout_marginLeft="@dimen/large"
             android:layout_marginTop="@dimen/small_to_normal"
             android:text="@string/gender_title"
-            android:textAppearance="@style/TitleInputStyleNotLogin"
+            android:textAppearance="@style/TextNormalBlack"
             app:layout_constraintStart_toEndOf="@+id/et_age_input_register"
             app:layout_constraintTop_toBottomOf="@+id/et_address_input_register"/>
 
@@ -128,7 +128,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_to_normal"
             android:text="@string/username_title"
-            android:textAppearance="@style/TitleInputStyleNotLogin"
+            android:textAppearance="@style/TextNormalBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_age_input_register"/>
 
@@ -161,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_to_normal"
             android:text="@string/password_title"
-            android:textAppearance="@style/TitleInputStyleNotLogin"
+            android:textAppearance="@style/TextNormalBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_username_input_register"/>
 
@@ -204,7 +204,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_to_normal"
             android:text="@string/confirm_password_title"
-            android:textAppearance="@style/TitleInputStyleNotLogin"
+            android:textAppearance="@style/TextNormalBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_password_input_register"/>
 
