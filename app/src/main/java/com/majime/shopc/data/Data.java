@@ -19,6 +19,7 @@ import java.util.Date;
 
 public class Data {
     public static final ArrayList<User> users = new ArrayList<>();
+    public static User currentUser = new User();
 
     private static final ArrayList<Product> products = new ArrayList<>(Arrays.asList(
             new Game("Cyberpunk 2077", 700000, 5, 21, R.drawable.game_cyberpunk, "V1.04", 102000, "Action RPG", "CD Projekt"),

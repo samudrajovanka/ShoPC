@@ -1,210 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/large"
     tools:context=".ui.profile.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_feature"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_profile_name"
+            style="@style/ProfileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_profile_username"
+            style="@style/ProfileUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_username"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_profile_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_name"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/foto_profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_saldo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/huge"
+        android:background="@drawable/bg_rect_primary_rad_10"
+        android:padding="@dimen/normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_feature">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/profile_feature"
-            android:layout_width="351dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="29dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginRight="31dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/container_saldo_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rect_white_rad_10"
+            android:minWidth="140dp"
+            android:padding="@dimen/small"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/profile_name"
-                style="@style/ProfileName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/profile_name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/profile_username"
-                style="@style/ProfileUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/profile_username"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_name" />
-
-            <View
-                android:id="@+id/ellipse_5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/ic_ellipse_5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/saldo_feature"
-            android:layout_width="351dp"
-            android:layout_height="124dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_feature">
-
-            <View
-                android:id="@+id/rectangle_3"
-                android:layout_width="351dp"
-                android:layout_height="124dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/ic_rectangle_31"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/group_22"
-                android:layout_width="140dp"
-                android:layout_height="82dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="21dp"
-                android:layout_marginRight="187dp"
-                android:layout_marginBottom="21dp"
-                android:background="@drawable/ic_rectangle_32"
-                app:layout_constraintBottom_toBottomOf="@+id/rectangle_3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/rectangle_3" />
-
-            <ImageButton
-                android:id="@+id/group_23"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="245dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="82dp"
-                android:layout_marginBottom="60dp"
-                android:background="@drawable/ic_add"
-                app:layout_constraintBottom_toBottomOf="@+id/rectangle_3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/rectangle_3" />
-
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/AddSaldo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="225dp"
-
-                android:layout_marginTop="69dp"
-                android:layout_marginRight="62dp"
-                android:layout_marginBottom="39dp"
-                android:text="Add Saldo"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/rectangle_3"
-                app:layout_constraintStart_toStartOf="@+id/rectangle_3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView2"
+                android:id="@+id/tv_saldo_profile"
                 style="@style/SaldoDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-
-                android:layout_marginLeft="34dp"
-                android:layout_marginTop="41dp"
-                android:layout_marginRight="279dp"
-                android:layout_marginBottom="67dp"
-
-                android:text="Saldo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/rectangle_3"
-                app:layout_constraintStart_toStartOf="@+id/rectangle_3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="@string/saldo_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_amount_saldo_profile"
                 style="@style/NominalSaldo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="34dp"
-
-                android:layout_marginTop="62dp"
-                android:layout_marginRight="225dp"
-                android:layout_marginBottom="41dp"
-                android:text="Rp 999.999"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.368"
+                android:layout_marginTop="@dimen/very_small"
+                android:text="@string/product_price"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/editView"
-            android:layout_width="351dp"
-            android:layout_height="40dp"
-
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/ic_group_25"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/saldo_feature"></androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/deleteView"
-            android:layout_width="351dp"
-            android:layout_height="40dp"
-
-            android:layout_marginTop="15dp"
-            android:background="@drawable/ic_group_26"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editView">
+                app:layout_constraintTop_toBottomOf="@id/tv_saldo_profile"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnv_main"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_btn_add_saldo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            app:itemIconTint="@drawable/bnv_icon_state"
-            app:itemTextColor="@drawable/bnv_icon_state"
-            app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu" />
+            app:layout_constraintStart_toEndOf="@id/container_saldo_price"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btn_add_saldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_add"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_add_saldo_title"
+                style="@style/AddSaldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_saldo_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_add_saldo"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_btn_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_rect_blue_rad_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_saldo">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_edit_profile_btn"
+            style="@style/TextNormalWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_to_normal"
+            android:text="@string/edit_profile_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_arrow_right_edit_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_to_normal"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_btn_delete_account"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/small_to_normal"
+        android:background="@drawable/bg_rect_red_rad_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_btn_edit_profile">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_delete_account_btn"
+            style="@style/TextNormalWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_to_normal"
+            android:text="@string/delete_account_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -98,4 +98,9 @@
     <string name="profile_name">Jovanka Samudra</string>
     <string name="profile_username">samudrajovanka</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="saldo_title">Saldo</string>
+    <string name="add_saldo_title">Add Saldo</string>
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="delete_account_title">Delete Account</string>
+    <string name="delete_account_success">Account deleted successfully</string>
 </resources>

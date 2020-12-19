@@ -121,7 +121,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ProductViewHolder holder, int position) {
-        holder.bind(products.get(position), position);
+        holder.bind(products.get(position));
     }
 
     @Override
@@ -149,7 +149,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             ivRating5 = itemView.findViewById(R.id.iv_rating_star_5);
         }
 
-        void bind(Product product, int position) {
+        void bind(Product product) {
             tvCategory.setText(product.getClass().getSimpleName());
             imageView.setImageResource(product.getPhoto());
             tvName.setText(product.getName());
@@ -160,7 +160,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(context, product.getName(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context, ProductDetailActivity.class);
                     intent.putExtra(ProductDetailActivity.key_name, product.getName());
                     context.startActivity(intent);

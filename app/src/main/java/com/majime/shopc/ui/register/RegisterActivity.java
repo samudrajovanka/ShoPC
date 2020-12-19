@@ -216,6 +216,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     Data.users.add(user);
                     Toast.makeText(this, R.string.alert_success_register, Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(this, LoginActivity.class));
+                    finish();
                 }
                 break;
         }

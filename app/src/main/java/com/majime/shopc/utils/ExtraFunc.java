@@ -7,6 +7,11 @@ public class ExtraFunc {
 
     public static String convertPrice(int price) {
         String strPrice = "";
+
+        if(price == 0) {
+            return "0";
+        }
+
         do {
             if(price % 1000 == 0) {
                 strPrice = ".000" + strPrice;

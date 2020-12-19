@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     boolean isValid = false;
                     for(User user: Data.users) {
                         if(user.getUsername().equals(textUsername) && user.getPassword().equals(textPassword)) {
+                            Data.currentUser = user;
                             isValid = true;
                             break;
 
@@ -82,6 +83,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     if(isValid) {
                         startActivity(new Intent(this, MainActivity.class));
+                        finish();
                     } else {
                         Toast.makeText(this, R.string.alert_failed_login, Toast.LENGTH_SHORT).show();
                     }
@@ -91,6 +93,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.tv_here_register:
                 // pindah ke screen register
                 startActivity(new Intent(this, RegisterActivity.class));
+                finish();
                 break;
         }
     }
