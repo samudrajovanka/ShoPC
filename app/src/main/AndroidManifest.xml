@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.alert.AlertActivity"></activity>
         <activity
             android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait"/>
@@ -21,15 +22,19 @@
         <activity
             android:name=".ui.product_detail.ProductDetailActivity"
             android:screenOrientation="portrait"/>
-
-        <activity android:name=".ui.addSaldo.addSaldoActivity"/>
+        <activity
+            android:name=".ui.addSaldo.AddSaldoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.payment.PaymentActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.splashscreen.SplashScreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

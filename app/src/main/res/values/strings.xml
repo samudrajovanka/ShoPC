@@ -110,12 +110,11 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
-    <string name="amount">Rp 0</string>
+    <string name="amount">Rp. 0</string>
     <string name="payment_method_title">Payment Method</string>
     <string name="cash">Cash</string>
     <string name="debit">debit</string>
     <string name="confirm">confirm</string>
-    <string name="debit_id">xxxx-xxxx-xxxx-xxxx-xxxx</string>
     <string name="debit_id_title">Debit ID</string>
     <string name="total_price">Total Price</string>
     <string name="title_pay">Pay</string>
@@ -127,4 +126,11 @@
     <string name="shipping_title">Shipping</string>
     <string name="amount_product_buy">x2</string>
     <string name="paymeny_title">Payment</string>
+    <string name="alert_debit_id_invalid">Your Debit ID invalid</string>
+    <string name="alert_empty_amount">Please insert amount</string>
+    <string name="alert_add_saldo_successful">Add saldo successful</string>
+    <string name="ok">Ok</string>
+    <string name="log_out_title">Log Out</string>
+    <string name="alert_digit_saldo">Saldo cannot be more than 6 digits</string>
+    <string name="alert_saldo_maximum">Your saldo is maximum</string>
 </resources>
