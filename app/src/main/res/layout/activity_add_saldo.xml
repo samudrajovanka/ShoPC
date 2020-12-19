@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightBlue"
+    android:fillViewport="true"
+    tools:context=".ui.login.LoginActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:padding="@dimen/large">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_amount_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="326dp"
+            android:layout_marginBottom="712dp"
+            android:textAppearance="@style/TitleInputStyleNotLogin"
+            android:text="@string/amount_title"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_amount"
+            style="@style/InputStyleAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_to_normal"
+            android:hint="@string/amount"
+            android:inputType="number"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_amount_title"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_payment_method_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_method_title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAppearance="@style/TitleInputStyleNotLogin"
+            app:layout_constraintTop_toBottomOf="@+id/et_amount"
+            android:layout_marginTop="50dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_cash"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:alpha="1"
+            android:background="@drawable/button_pay_method"
+            android:layout_marginTop="@dimen/text_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_payment_method_title">
+
+            <ImageView
+                android:id="@+id/iv_cash_add_saldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_bi_cash"
+                android:elevation="2dp"
+                android:layout_marginLeft="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_cash_add_saldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                android:layout_marginLeft="@dimen/text_small"
+                android:text="@string/cash"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_cash_add_saldo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_debit"
+            android:background="@drawable/button_pay_method"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:alpha="0.5"
+            android:layout_marginTop="@dimen/text_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container_cash">
+
+            <ImageView
+                android:id="@+id/iv_debit_add_saldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_bi_debit"
+                android:elevation="2dp"
+                android:layout_marginLeft="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_debit_add_saldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_small"
+                android:elevation="2dp"
+                android:text="@string/debit"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_debit_add_saldo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_debitID_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/debit_id_title"
+            android:textAppearance="@style/TitleInputStyleNotLogin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_debit" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_debit_id"
+            android:layout_marginTop="@dimen/text_small"
+            android:inputType="text"
+            android:gravity="center"
+            android:hint="@string/debit_id"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/bg_debit_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_debitID_title" />
+
+        <Button
+            android:id="@+id/btn_add_saldo"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</RelativeLayout>
