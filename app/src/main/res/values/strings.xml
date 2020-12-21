@@ -93,4 +93,11 @@
     <string name="type_os_product">Type</string>
     <string name="version_soft_product">Version</string>
     <string name="size_soft_product">Size</string>
+    
+    <!--Cart    -->
+    <string name="title_purchase">Purchase</string>
+    <string name="title_sub_total">Sub Total: Rp 14.045.420</string>
+    <string name="label_plus">+</string>
+    <string name="label_minus">-</string>
+
 </resources>
