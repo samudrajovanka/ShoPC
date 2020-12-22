@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorLightBlue">
+
+    <include layout="@layout/toolbar"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_change_data_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="45dp"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/title_change_data_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_edit_data_profile"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="25dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:textSize="18dp"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:id="@+id/name_change_data_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_title"
+            app:layout_constraintTop_toBottomOf="@id/title_change_data_profile"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:textSize="12dp"
+            android:textColor="@color/colorBlack"/>
+        
+        <EditText
+            android:id="@+id/et_name_change_data_profile"
+            android:textColor="@color/colorBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/name_change_data_profile"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="25dp"
+            android:hint="@string/name_title"
+            style="@style/InputStyleLogin"/>
+
+        <TextView
+            android:id="@+id/address_change_data_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address_title"
+            app:layout_constraintTop_toBottomOf="@id/et_name_change_data_profile"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:textSize="12dp"
+            android:textColor="@color/colorBlack"/>
+
+        <EditText
+            android:id="@+id/et_address_change_data_profile"
+            android:textColor="@color/colorBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/address_change_data_profile"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="25dp"
+            android:hint="@string/address_title"
+            style="@style/InputStyleLogin"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@id/constraint_change_data_profile"
+        android:layout_marginTop="32dp">
+
+        <TextView
+            android:id="@+id/title_change_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_edit_password"
+            app:layout_constraintTop_toTopOf="@id/constraint_change_password"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="18dp"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:id="@+id/current_password_change_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/current_password"
+            app:layout_constraintTop_toBottomOf="@id/title_change_password"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:textSize="12dp"
+            android:textColor="@color/colorBlack"/>
+
+        <EditText
+            android:id="@+id/et_current_password_change_password"
+            android:textColor="@color/colorBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/current_password_change_password"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="25dp"
+            android:hint="@string/current_password"
+            style="@style/InputStyleLogin"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:id="@+id/new_password_change_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_password"
+            app:layout_constraintTop_toBottomOf="@id/et_current_password_change_password"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:textSize="12dp"
+            android:textColor="@color/colorBlack"/>
+
+        <EditText
+            android:id="@+id/et_new_password_change_password"
+            android:textColor="@color/colorBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/new_password_change_password"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="25dp"
+            android:hint="@string/new_password"
+            style="@style/InputStyleLogin"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:id="@+id/confirm_password_change_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm_new_password"
+            app:layout_constraintTop_toBottomOf="@id/et_new_password_change_password"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:textSize="12dp"
+            android:textColor="@color/colorBlack"/>
+
+        <EditText
+            android:id="@+id/et_confirm_password_change_password"
+            android:textColor="@color/colorBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/confirm_password_change_password"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="25dp"
+            android:hint="@string/confirm_new_password"
+            style="@style/InputStyleLogin"
+            android:inputType="textPassword"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_save_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_btn"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="16dp"
+        style="@style/ButtonStyle"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
