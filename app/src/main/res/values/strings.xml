@@ -34,6 +34,14 @@
         <item>Games</item>
         <item>Antivirus</item>
     </string-array>
+    
+    <!-- Edit Profile -->
+    <string name="title_edit_data_profile">Change Profile Data</string>
+    <string name="title_edit_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="save_btn">Save</string>
 
     <string name="product_component_detail">Processor</string>
     <string name="amount_of_product_title">Amount of Product :</string>
