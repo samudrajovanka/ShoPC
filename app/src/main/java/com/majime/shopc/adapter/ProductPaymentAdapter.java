@@ -14,13 +14,16 @@ import com.majime.shopc.model.Product;
 import com.majime.shopc.utils.ExtraFunc;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class ProductPaymentAdapter extends RecyclerView.Adapter<ProductPaymentAdapter.ProductPaymentHolder> {
 
-    ArrayList<Product> products;
+    ArrayList<Product> products, productsSetArray;;
 
     public ProductPaymentAdapter(ArrayList<Product> products) {
         this.products = products;
+        this.productsSetArray = new ArrayList<>(new HashSet<>(products));
     }
 
     @NonNull
@@ -41,13 +44,14 @@ public class ProductPaymentAdapter extends RecyclerView.Adapter<ProductPaymentAd
 
     @Override
     public int getItemCount() {
-        return products.size();
+        return productsSetArray.size();
     }
 
     public class ProductPaymentHolder extends RecyclerView.ViewHolder {
 
         ImageView ivProduct;
         MaterialTextView tvNameProduct, tvComponentProduct, tvPrice, tvAmountBuy;
+        int amount = 0;
 
         public ProductPaymentHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,11 +63,13 @@ public class ProductPaymentAdapter extends RecyclerView.Adapter<ProductPaymentAd
         }
 
         void bind(Product product) {
+            amount = Collections.frequency(products, product);
+
             ivProduct.setImageResource(product.getPhoto());
             tvNameProduct.setText(product.getName());
             tvComponentProduct.setText(product.getClass().getSimpleName());
             tvPrice.setText("Rp. " + ExtraFunc.convertPrice(product.getPrice()));
-            tvAmountBuy.setText("x" + 1);
+            tvAmountBuy.setText("x" + amount);
         }
 
     }

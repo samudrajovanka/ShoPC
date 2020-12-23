@@ -175,7 +175,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                             } else {
                                 isNotBlank = true;
                                 Toast.makeText(this,
-                                               R.string.alert_password_edit_profile,
+                                               R.string.alert_data_incorrect,
                                                Toast.LENGTH_SHORT
                                 ).show();
                             }
@@ -183,7 +183,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                         } else {
                             isNotBlank = true;
                             Toast.makeText(this,
-                                           R.string.alert_password_edit_profile,
+                                           R.string.alert_data_incorrect,
                                            Toast.LENGTH_SHORT
                             )
                                     .show();
@@ -219,28 +219,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                     )
                             .show();
                 }
-
-                //if(TextUtils.isEmpty(textName) || TextUtils.isEmpty(textAddress)) {
-                //    Toast.makeText(this, R.string.alert_blank_field_edit_profile, Toast.LENGTH_SHORT).show();
-                //} else if(textName.equals(Data.currentUser.getName()) && textAddress.equals(Data.currentUser.getAddress())) {
-                //    startActivity(new Intent(this, MainActivity.class));
-                //} else {
-                //    Toast.makeText(this, R.string.success_edit_profile, Toast.LENGTH_SHORT).show();
-                //    startActivity(new Intent(this, MainActivity.class));
-                //}
-                //
-                //if(!TextUtils.isEmpty(textCurrentPassword) || !TextUtils.isEmpty(textNewPassword) || !TextUtils.isEmpty(textConfirmPassword)) {
-                //    if(TextUtils.isEmpty(textCurrentPassword) || TextUtils.isEmpty(textNewPassword) || TextUtils.isEmpty(textConfirmPassword)) {
-                //        Toast.makeText(this, R.string.alert_blank_field_edit_profile, Toast.LENGTH_SHORT).show();
-                //    } else {
-                //        if(isNewPasswordValid && isConfirmPasswordValid) {
-                //            Toast.makeText(this, R.string.success_edit_profile, Toast.LENGTH_SHORT).show();
-                //            startActivity(new Intent(this, MainActivity.class));
-                //        } else {
-                //            Toast.makeText(this, R.string.alert_password_edit_profile, Toast.LENGTH_SHORT).show();
-                //        }
-                //    }
-                //}
                 break;
         }
     }

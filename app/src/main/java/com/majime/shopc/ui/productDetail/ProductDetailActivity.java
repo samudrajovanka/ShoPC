@@ -172,16 +172,6 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         rvSpecificProduct.setAdapter(specificProductAdapter);
     }
 
-    private boolean loadFragment(Fragment fragment) {
-        if (fragment != null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fl_fragment_main, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
-
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
@@ -190,7 +180,8 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.btn_add_to_cart:
                 onBackPressed();
-                Toast.makeText(this, "masuk", Toast.LENGTH_SHORT).show();
+                Data.currentUser.addWaitingCartProduct(product);
+                Toast.makeText(this, R.string.alert_success_add_to_cart, Toast.LENGTH_SHORT).show();
                 break;
         }
     }

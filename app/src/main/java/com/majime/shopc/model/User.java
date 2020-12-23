@@ -176,7 +176,7 @@ public class User extends Account {
     public boolean removeAllWaitingCartProducts() {
         if(this.waitingCartProducts.size() == 0) return false;
 
-        for(int i = this.waitingCartProducts.size(); i <= 0; i--) {
+        for(int i = this.amountOfCartProduct(); i >= 0; i--) {
             this.removeWaitingCartProduct(i);
         }
 
@@ -185,6 +185,16 @@ public class User extends Account {
 
     public int amountOfCartProduct() {
         return this.waitingCartProducts.size();
+    }
+
+    public int getPriceCartProduct() {
+        int total = 0;
+
+        for(Product product : this.waitingCartProducts) {
+            total += product.getPrice();
+        }
+
+        return total;
     }
 
 }

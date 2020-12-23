@@ -236,6 +236,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/TextLargeWhite"
+                android:id="@+id/tv_total_payment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/large"

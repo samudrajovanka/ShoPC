@@ -16,7 +16,16 @@ public class ExtraFunc {
             if(price % 1000 == 0) {
                 strPrice = ".000" + strPrice;
             } else {
-                strPrice = "." + price % 1000 + strPrice;
+                if(price % 1000 < 100) {
+                    if(price % 1000 < 10) {
+                        strPrice = ".00" + price % 1000 + strPrice;
+                    } else {
+                        strPrice = ".0" + price % 1000 + strPrice;
+                    }
+                } else {
+                    strPrice = "." + price % 1000 + strPrice;
+                }
+
             }
             price /= 1000;
         } while(price / 1000 != 0);

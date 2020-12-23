@@ -8,6 +8,7 @@
     android:layout_marginEnd="@dimen/large"
     android:layout_marginBottom="@dimen/small_to_normal"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:elevation="@dimen/very_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -143,12 +143,15 @@
     <string name="alert_saldo_maximum">Your saldo is maximum</string>
     <string name="alert_blank_field_edit_profile">Field is blank.</string>
     <string name="success_edit_profile">Profile edit successful.</string>
-    <string name="alert_password_edit_profile">Make sure data is correct</string>
+    <string name="alert_data_incorrect">Make sure data is correct</string>
 
     <!--Cart    -->
     <string name="title_purchase">Purchase</string>
-    <string name="title_sub_total">Sub Total: Rp 14.045.420</string>
+    <string name="title_sub_total">Sub Total:</string>
     <string name="label_plus">+</string>
     <string name="label_minus">-</string>
+    <string name="alert_success_add_to_cart">Product has entered the cart</string>
+    <string name="alert_payment_failed">Payment Failed\nYour saldo isn’t enough</string>
+    <string name="alert_payment_success">Payment successful</string>
 
 </resources>

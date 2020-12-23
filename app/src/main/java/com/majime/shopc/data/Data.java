@@ -2,7 +2,10 @@ package com.majime.shopc.data;
 
 import com.majime.shopc.R;
 import com.majime.shopc.model.Antivirus;
+import com.majime.shopc.model.Cash;
+import com.majime.shopc.model.Debit;
 import com.majime.shopc.model.Game;
+import com.majime.shopc.model.Jne;
 import com.majime.shopc.model.Motherboard;
 import com.majime.shopc.model.OperatingSystem;
 import com.majime.shopc.model.Processor;
@@ -10,6 +13,7 @@ import com.majime.shopc.model.Product;
 import com.majime.shopc.model.Ram;
 import com.majime.shopc.model.Storage;
 import com.majime.shopc.model.Store;
+import com.majime.shopc.model.Tiki;
 import com.majime.shopc.model.User;
 import com.majime.shopc.model.Vga;
 
@@ -46,4 +50,8 @@ public class Data {
             new Motherboard("ASUS PRIME X299", 8110000, 5, 5, R.drawable.motherboard_prime, 2041, 30, 3, 25, "ASUS", "X299", 2066, 8, "LGA2066")
     ));
     public static final Store store = new Store("ShoPC", "Jln. Sesama Bahagia", products);
+    public static final  Jne jne = new Jne(1000, true);
+    public static final Tiki tiki = new Tiki(2000, "Same Day");
+    public static final Cash cash = new Cash(1500);
+    public static final Debit debit = new Debit(2500);
 }

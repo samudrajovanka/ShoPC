@@ -1,7 +1,6 @@
 package com.majime.shopc.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,26 +8,30 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
+import com.majime.shopc.data.Data;
 import com.majime.shopc.model.Product;
-import com.majime.shopc.ui.product_detail.ProductDetailActivity;
 import com.majime.shopc.utils.ExtraFunc;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
-    private ArrayList<Product> products, productsFull;
-    private Context context;
+    private ArrayList<Product> products, productsSetArray;
+    private MaterialTextView tvSubTotal;
+    private Button btnPurchase;
 
-    public CartAdapter(Context context, ArrayList<Product> products) {
-        this.context = context;
+    public CartAdapter(ArrayList<Product> products, MaterialTextView tvSubTotal, Button btnPurchase) {
         this.products = products;
-        this.productsFull = new ArrayList<>(products);
+        this.productsSetArray = new ArrayList<>(new HashSet<>(products));
+        this.tvSubTotal = tvSubTotal;
+        this.btnPurchase = btnPurchase;
     }
 
     @NonNull
@@ -42,25 +45,25 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.CartViewHolder holder, int position) {
-        holder.bind(products.get(position), position);
+        holder.bind(productsSetArray.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return products.size();
+        return productsSetArray.size();
     }
 
-    public class CartViewHolder extends RecyclerView.ViewHolder {
+    public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView tvCategory, tvName, tvPrice, tvAmount;
         ImageView ivPhoto;
         Button btnIncrease, btnReduce;
         ImageButton btnDelete;
-        View itemView;
+        int amount = 0;
+        Product product;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.itemView = itemView;
             tvCategory = itemView.findViewById(R.id.tv_cart_product_category);
             ivPhoto = itemView.findViewById(R.id.iv_cart_product_photo);
             tvName = itemView.findViewById(R.id.tv_cart_product_name);
@@ -71,53 +74,80 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             btnReduce = itemView.findViewById(R.id.btn_cart_reduce_amount);
         }
 
-        void bind(final Product product, int position) {
-            String amount = "";
-            int currentAmount = product.getAmount();
-            amount = amount + currentAmount;
+        void bind(final Product product) {
+            this.product = product;
+            amount = Collections.frequency(products, product);
 
             tvCategory.setText(product.getClass().getSimpleName());
             ivPhoto.setImageResource(product.getPhoto());
             tvName.setText(product.getName());
-            tvAmount.setText(amount);
-            tvPrice.setText("Rp. " + ExtraFunc.convertPrice((product.getPrice())));
+            tvAmount.setText(String.valueOf(amount));
+            tvPrice.setText("Rp. "+ ExtraFunc.convertPrice(Data.store.getProduct(this.product.getName()).getPrice()));
+            setButton();
 
-            btnDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+            int amountOfProduct = Data.store.getProduct(this.product.getName()).getAmount();
+            if(amount > amountOfProduct) {
+                for(int i = 0; i < amount-amountOfProduct; i++) {
+                    Data.currentUser.removeWaitingCartProduct(this.product.getName());
                 }
-            });
-            btnIncrease.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String amount = "";
-                    int currentAmount = (product.getAmount() + 1);
+                productsSetArray.remove(product);
+                tvSubTotal.setText("Rp. "+ ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
+                notifyDataSetChanged();
+            }
 
-                    if (currentAmount < 1) {
-                        currentAmount = 1;
+            if(amount > 1) {
+                btnReduce.setBackgroundResource(R.drawable.bg_rect_grey);
+            } else {
+                btnReduce.setBackgroundResource(R.drawable.bg_rect_grey_30);
+            }
+
+            if(amount < Data.store.getProduct(this.product.getName()).getAmount()) {
+                btnIncrease.setBackgroundResource(R.drawable.bg_rect_grey);
+            } else {
+                btnIncrease.setBackgroundResource(R.drawable.bg_rect_grey_30);
+            }
+
+            btnDelete.setOnClickListener(this);
+            btnIncrease.setOnClickListener(this);
+            btnReduce.setOnClickListener(this);
+        }
+
+        private void setButton() {
+            if(Data.currentUser.getWaitingCartProducts().size() > 0) {
+                btnPurchase.setEnabled(true);
+            } else {
+                btnPurchase.setEnabled(false);
+            }
+        }
+
+        @Override
+        public void onClick(View view) {
+            switch(view.getId()) {
+                case R.id.btn_cart_delete_product:
+                    for(int i = 0; i < amount; i++) {
+                        Data.currentUser.removeWaitingCartProduct(this.product.getName());
                     }
-
-                    product.setAmount(currentAmount);
-                    amount = amount + currentAmount;
-                    tvAmount.setText(amount);
-                }
-            });
-            btnReduce.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String amount = "";
-                    int currentAmount = (product.getAmount() - 1);
-
-                    if (currentAmount < 1) {
-                        currentAmount = 1;
+                    productsSetArray.remove(product);
+                    tvSubTotal.setText("Rp. "+ ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
+                    notifyDataSetChanged();
+                    setButton();
+                    break;
+                case R.id.btn_cart_increase_amount:
+                    if(amount < Data.store.getProduct(this.product.getName()).getAmount()) {
+                        Data.currentUser.addWaitingCartProduct(this.product);
+                        tvSubTotal.setText("Rp. "+ ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
+                        notifyDataSetChanged();
                     }
-
-                    product.setAmount(currentAmount);
-                    amount = amount + currentAmount;
-                    tvAmount.setText(amount);
-                }
-            });
+                    break;
+                case R.id.btn_cart_reduce_amount:
+                    if(amount > 1) {
+                        Data.currentUser.removeWaitingCartProduct(this.product.getName());
+                        tvSubTotal.setText("Rp. "+ ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
+                        notifyDataSetChanged();
+                    }
+                    setButton();
+                    break;
+            }
         }
 
     }

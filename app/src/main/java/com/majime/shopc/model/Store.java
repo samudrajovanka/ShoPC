@@ -3,6 +3,8 @@ package com.majime.shopc.model;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class Store {
     private String name, address;
@@ -127,8 +129,8 @@ public class Store {
         return total;
     }
 
-    public int calculate(ArrayList<Product> products, Shipping shipping, Payment payment) {
-        int total = shipping.calculate(products.size()) + payment.calculate(products.size());
+    public int calculate(int size, Shipping shipping, Payment payment) {
+        int total = shipping.calculate(size) + payment.calculate(products.size());
 
         return total;
     }
@@ -136,13 +138,21 @@ public class Store {
     public boolean buy(User user, Shipping shipping, Payment payment) {
         int totalPrice = 0;
         if(user.amountOfCartProduct() == 1)
-            totalPrice = calculate(shipping, payment);
+            totalPrice = user.getPriceCartProduct() + calculate(shipping, payment);
         else
-            totalPrice = calculate(user.getWaitingCartProducts(), shipping, payment);
+            totalPrice = user.getPriceCartProduct() + calculate(user.amountOfCartProduct(), shipping, payment);
 
         if(user.getSaldo() >= totalPrice) {
             user.setSaldo(user.getSaldo() - totalPrice);
             user.addWaitingListProduct(user.getWaitingCartProducts());
+
+            ArrayList<Product> productsSetArray = new ArrayList<>(new HashSet<>(user.getWaitingCartProducts()));
+            for(Product product : productsSetArray) {
+                int currentAmount = this.getProduct(product.getName()).getAmount();
+                int amountBuying = Collections.frequency(user.getWaitingCartProducts(), product);
+                this.getProduct(product.getName()).setAmount(currentAmount - amountBuying);
+            }
+            
             user.removeAllWaitingCartProducts();
             return true;
         } else {
