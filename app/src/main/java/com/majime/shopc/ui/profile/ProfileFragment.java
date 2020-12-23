@@ -64,7 +64,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 getActivity().startActivity(new Intent(getContext(), AddSaldoActivity.class));
                 break;
             case R.id.container_btn_edit_profile:
-                Toast.makeText(getActivity(), "Btn Edit profile bisa", Toast.LENGTH_SHORT).show();
+                getActivity().startActivity(new Intent(getContext(), EditProfileActivity.class));
+                //Toast.makeText(getActivity(), "Btn Edit profile bisa", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.container_btn_log_out_account:
                 startActivity(new Intent(getContext(), LoginActivity.class));

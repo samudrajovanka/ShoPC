@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.alert.AlertActivity"></activity>
         <activity
             android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait"/>
@@ -20,13 +19,19 @@
             android:name=".ui.main.MainActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.product_detail.ProductDetailActivity"
+            android:name=".ui.productDetail.ProductDetailActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.addSaldo.AddSaldoActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.payment.PaymentActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.alert.AlertActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.profile.EditProfileActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.splashscreen.SplashScreenActivity"

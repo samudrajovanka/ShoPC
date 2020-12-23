@@ -141,4 +141,7 @@
     <string name="log_out_title">Log Out</string>
     <string name="alert_digit_saldo">Saldo cannot be more than 6 digits</string>
     <string name="alert_saldo_maximum">Your saldo is maximum</string>
+    <string name="alert_blank_field_edit_profile">Field is blank.</string>
+    <string name="success_edit_profile">Profile edit successful.</string>
+    <string name="alert_password_edit_profile">Make sure data is correct</string>
 </resources>

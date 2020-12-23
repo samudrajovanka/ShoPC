@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,7 +22,7 @@ import com.majime.shopc.model.Product;
 import com.majime.shopc.model.Ram;
 import com.majime.shopc.model.Storage;
 import com.majime.shopc.model.Vga;
-import com.majime.shopc.ui.product_detail.ProductDetailActivity;
+import com.majime.shopc.ui.productDetail.ProductDetailActivity;
 import com.majime.shopc.utils.ExtraFunc;
 
 import java.util.ArrayList;

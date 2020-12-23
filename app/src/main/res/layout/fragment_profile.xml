@@ -17,7 +17,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_profile_name"
-            style="@style/ProfileName"
+            style="@style/TextLargeBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/profile_name"

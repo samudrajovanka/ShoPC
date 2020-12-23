@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.btn_login:
                 textUsername = etUsername.getText().toString().toLowerCase().trim();
-                textPassword = etPassword.getText().toString().toLowerCase().trim();
+                textPassword = etPassword.getText().toString().trim();
 
                 if(TextUtils.isEmpty(textUsername) || TextUtils.isEmpty((textPassword))) {
                     Toast.makeText(this, R.string.alert_login, Toast.LENGTH_SHORT).show();

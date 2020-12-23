@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorLightBlue"
     android:fillViewport="true"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.register.RegisterActivity">
 
     <include layout="@layout/toolbar"/>
 
