@@ -36,7 +36,7 @@
         <item>Games</item>
         <item>Antivirus</item>
     </string-array>
-    
+
     <!-- Edit Profile -->
     <string name="title_edit_data_profile">Change Profile Data</string>
     <string name="title_edit_password">Change Password</string>
@@ -144,4 +144,11 @@
     <string name="alert_blank_field_edit_profile">Field is blank.</string>
     <string name="success_edit_profile">Profile edit successful.</string>
     <string name="alert_password_edit_profile">Make sure data is correct</string>
+
+    <!--Cart    -->
+    <string name="title_purchase">Purchase</string>
+    <string name="title_sub_total">Sub Total: Rp 14.045.420</string>
+    <string name="label_plus">+</string>
+    <string name="label_minus">-</string>
+
 </resources>
