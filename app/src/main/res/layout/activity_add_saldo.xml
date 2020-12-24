@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorLightBlue"
     android:fillViewport="true"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.addSaldo.AddSaldoActivity">
 
     <include layout="@layout/toolbar"/>
 
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/small_to_normal"
-            android:hint="@string/amount"
+            android:hint="@string/amount_hint"
             android:inputType="number"
             android:textColor="@color/colorBlack"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/text_medium"
             android:alpha="1"
-            android:background="@drawable/button_pay_method"
+            android:background="@drawable/bg_rect_grad_primary_dark_primary_rad_10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_payment_method_title">
 
@@ -65,7 +65,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/text_small"
                 android:background="@drawable/ic_bi_cash"
-                android:elevation="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -75,11 +74,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/text_small"
-                android:elevation="2dp"
-                android:text="@string/cash"
+                android:text="@string/title_cash"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_cash_add_saldo"
+                app:layout_constraintStart_toEndOf="@id/iv_cash_add_saldo"
                 app:layout_constraintTop_toTopOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -90,7 +88,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/text_medium"
             android:alpha="0.5"
-            android:background="@drawable/button_pay_method"
+            android:background="@drawable/bg_rect_grad_primary_dark_primary_rad_10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/container_cash">
 
@@ -100,7 +98,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/text_small"
                 android:background="@drawable/ic_bi_debit"
-                android:elevation="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -110,11 +107,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/text_small"
-                android:elevation="2dp"
-                android:text="@string/debit"
+                android:text="@string/title_debit"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_debit_add_saldo"
+                app:layout_constraintStart_toEndOf="@id/iv_debit_add_saldo"
                 app:layout_constraintTop_toTopOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -150,7 +146,7 @@
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_debitID_title"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_debitID_title"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

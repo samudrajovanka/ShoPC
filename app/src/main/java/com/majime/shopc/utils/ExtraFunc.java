@@ -31,21 +31,28 @@ public class ExtraFunc {
         } while(price / 1000 != 0);
         strPrice = price % 1000 + strPrice;
 
-        return  strPrice;
+        return strPrice;
     }
 
     public static String convertSize(int size) {
         String strSize = "";
-        strSize += size/1000;
+        strSize += size / 1000;
 
-        if(size % 1000 != 0 ) {
-            strSize += "." + size%1000;
+        if(size % 1000 != 0) {
+            strSize += "." + size % 1000;
         }
 
         return strSize;
     }
 
-    public static void setStarRating(int rating, ImageView iv1, ImageView iv2, ImageView iv3, ImageView iv4, ImageView iv5) {
+    public static void setStarRating(
+            int rating,
+            ImageView iv1,
+            ImageView iv2,
+            ImageView iv3,
+            ImageView iv4,
+            ImageView iv5
+    ) {
         switch(rating) {
             case 1:
                 iv1.setVisibility(View.VISIBLE);
@@ -84,4 +91,5 @@ public class ExtraFunc {
                 break;
         }
     }
+
 }

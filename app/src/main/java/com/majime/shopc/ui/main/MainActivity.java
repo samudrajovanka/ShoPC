@@ -13,7 +13,8 @@ import com.majime.shopc.ui.cart.CartFragment;
 import com.majime.shopc.ui.home.HomeFragment;
 import com.majime.shopc.ui.profile.ProfileFragment;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity
+        implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bnvMain.setOnNavigationItemSelectedListener(this);
     }
 
+    // fungsi untuk mengeload fragment
     private boolean loadFragment(Fragment fragment) {
-        if (fragment != null) {
+        if(fragment != null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fl_fragment_main, fragment)
                     .commit();
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
-        switch (item.getItemId()){
+        switch(item.getItemId()) {
             case R.id.menu_home:
                 fragment = new HomeFragment();
                 break;

@@ -10,13 +10,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/iv_image_product_detail"
@@ -39,7 +39,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_name_product_detail"
-                    style="@style/TitleNameProduct"
+                    style="@style/TextHugeBlack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/product_name"
@@ -49,7 +49,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_product_component_detail"
-                    style="@style/ComponentProductDetail"
+                    style="@style/TextNormalGrey"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/product_component_detail"
@@ -57,7 +57,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_price_product_detail"
-                    style="@style/PriceProductDetail"
+                    style="@style/TextMediumPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/very_small"
@@ -168,7 +168,6 @@
                     android:layout_marginStart="@dimen/very_small"
                     android:text="@string/amount_of_product"
                     android:textStyle="bold"
-
                     app:layout_constraintBottom_toBottomOf="@+id/tv_amount_product_title"
                     app:layout_constraintStart_toEndOf="@id/tv_amount_product_title"
                     app:layout_constraintTop_toTopOf="@+id/tv_amount_product_title"/>

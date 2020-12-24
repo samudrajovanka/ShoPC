@@ -7,9 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,21 +21,11 @@ import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
 import com.majime.shopc.adapter.ProductPaymentAdapter;
 import com.majime.shopc.data.Data;
-import com.majime.shopc.model.Cash;
-import com.majime.shopc.model.Jne;
-import com.majime.shopc.model.Product;
-import com.majime.shopc.model.Tiki;
 import com.majime.shopc.ui.alert.AlertActivity;
-import com.majime.shopc.utils.CustomTextWacther;
 import com.majime.shopc.utils.ExtraFunc;
-import com.majime.shopc.utils.ItemOffsetDecoration;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-
-public class PaymentActivity extends AppCompatActivity implements View.OnClickListener,
-                                                                  AdapterView.OnItemSelectedListener {
+public class PaymentActivity extends AppCompatActivity
+        implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     RecyclerView rvProduct;
     Spinner spinner;
@@ -58,7 +46,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initiateUi() {
         MaterialTextView tvToolbar = findViewById(R.id.tv_toolbar);
-        ImageView  ivToolbar = findViewById(R.id.iv_logo_toolbar);
+        ImageView ivToolbar = findViewById(R.id.iv_logo_toolbar);
         ImageButton btnBack = findViewById(R.id.btn_back_toolbar);
         rvProduct = findViewById(R.id.rv_product_payment);
         spinner = findViewById(R.id.spinner_shipping_user_payment);
@@ -70,6 +58,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         etDebitId = findViewById(R.id.et_debit_id_payment);
         tvTotalPayment = findViewById(R.id.tv_total_payment);
 
+        // set toolbar
         tvToolbar.setText(R.string.paymeny_title);
         ivToolbar.setVisibility(View.GONE);
         btnBack.setVisibility(View.VISIBLE);
@@ -107,20 +96,21 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
     private void setSpinner() {
         String[] shippings = new String[]{"JNE", "TiKi"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, shippings);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, shippings);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
     }
 
-    private void showRecyclerProduct(){
+    private void showRecyclerProduct() {
         rvProduct.setHasFixedSize(true);
         rvProduct.setLayoutManager(new LinearLayoutManager(this));
-        ProductPaymentAdapter productPaymentAdapter = new ProductPaymentAdapter(Data.currentUser.getWaitingCartProducts());
+        ProductPaymentAdapter productPaymentAdapter =
+                new ProductPaymentAdapter(Data.currentUser.getWaitingCartProducts());
         rvProduct.setAdapter(productPaymentAdapter);
     }
 
     private void moveToPaymentAlert(boolean isSuccess) {
-        System.out.println("didalem 2 " + Data.currentUser.getWaitingCartProducts());
         Intent intent = new Intent(this, AlertActivity.class);
         if(isSuccess) {
             intent.putExtra(AlertActivity.keyIcon, "success");
@@ -137,7 +127,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         switch(view.getId()) {
             case R.id.btn_back_toolbar:
                 onBackPressed();
-                 break;
+                break;
             case R.id.container_btn_cash_payment:
                 containerBtnCash.setAlpha(1);
                 containerBtnDebit.setAlpha(0.5f);
@@ -159,27 +149,34 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 debitId = etDebitId.getText().toString().trim();
 
                 if(isDebit) {
-                    if(TextUtils.isEmpty(address) || TextUtils.isEmpty(shipping) || debitId.length() < 16) {
-                        Toast.makeText(this, R.string.alert_data_incorrect, Toast.LENGTH_SHORT).show();
+                    if(TextUtils.isEmpty(address) || TextUtils.isEmpty(shipping) ||
+                       debitId.length() < 16) {
+                        Toast.makeText(this, R.string.alert_data_incorrect, Toast.LENGTH_SHORT)
+                                .show();
                     } else {
                         boolean isPaymentSuccess = false;
                         if(shipping.equalsIgnoreCase("jne")) {
-                            isPaymentSuccess = Data.store.buy(Data.currentUser, Data.jne, Data.debit);
+                            isPaymentSuccess =
+                                    Data.store.buy(Data.currentUser, Data.jne, Data.debit);
                         } else if(shipping.equalsIgnoreCase("tiki")) {
-                            isPaymentSuccess = Data.store.buy(Data.currentUser, Data.tiki, Data.debit);
+                            isPaymentSuccess =
+                                    Data.store.buy(Data.currentUser, Data.tiki, Data.debit);
                         }
 
                         moveToPaymentAlert(isPaymentSuccess);
                     }
                 } else {
                     if(TextUtils.isEmpty(address) || TextUtils.isEmpty(shipping)) {
-                        Toast.makeText(this, R.string.alert_data_incorrect, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.alert_data_incorrect, Toast.LENGTH_SHORT)
+                                .show();
                     } else {
                         boolean isPaymentSuccess = false;
                         if(shipping.equalsIgnoreCase("jne")) {
-                            isPaymentSuccess = Data.store.buy(Data.currentUser, Data.jne, Data.cash);
+                            isPaymentSuccess =
+                                    Data.store.buy(Data.currentUser, Data.jne, Data.cash);
                         } else if(shipping.equalsIgnoreCase("tiki")) {
-                            isPaymentSuccess = Data.store.buy(Data.currentUser, Data.tiki, Data.cash);
+                            isPaymentSuccess =
+                                    Data.store.buy(Data.currentUser, Data.tiki, Data.cash);
                         }
 
                         moveToPaymentAlert(isPaymentSuccess);

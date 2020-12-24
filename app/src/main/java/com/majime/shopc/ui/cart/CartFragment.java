@@ -20,6 +20,7 @@ import com.majime.shopc.ui.payment.PaymentActivity;
 import com.majime.shopc.utils.ExtraFunc;
 
 public class CartFragment extends Fragment implements View.OnClickListener {
+
     private RecyclerView rvCartItems;
     private MaterialTextView titleSubTotal;
     private Button btnPurchase;
@@ -45,7 +46,8 @@ public class CartFragment extends Fragment implements View.OnClickListener {
         btnPurchase = view.findViewById(R.id.btn_cart_purchase);
         rvCartItems = view.findViewById(R.id.rv_cart_product);
 
-        titleSubTotal.setText("Rp. "+ ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
+        titleSubTotal.setText(
+                "Rp. " + ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
 
         showRecyclerView();
 
@@ -54,18 +56,20 @@ public class CartFragment extends Fragment implements View.OnClickListener {
 
     private void showRecyclerView() {
         rvCartItems.setLayoutManager(new LinearLayoutManager(getActivity()));
-        CartAdapter cartAdapter = new CartAdapter(Data.currentUser.getWaitingCartProducts(), titleSubTotal, btnPurchase);
-        //VerticalSpaceItemDecoration itemDecoration = new VerticalSpaceItemDecoration(16);
-        //rvCartItems.addItemDecoration(itemDecoration);
+        CartAdapter cartAdapter = new CartAdapter(Data.currentUser.getWaitingCartProducts(),
+                                                  titleSubTotal,
+                                                  btnPurchase
+        );
         rvCartItems.setAdapter(cartAdapter);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
+        switch(v.getId()) {
             case R.id.btn_cart_purchase:
                 getActivity().startActivity(new Intent(getContext(), PaymentActivity.class));
                 break;
         }
     }
+
 }

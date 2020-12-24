@@ -1,6 +1,5 @@
 package com.majime.shopc.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,11 +22,14 @@ import java.util.Collections;
 import java.util.HashSet;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
+
     private ArrayList<Product> products, productsSetArray;
     private MaterialTextView tvSubTotal;
     private Button btnPurchase;
 
-    public CartAdapter(ArrayList<Product> products, MaterialTextView tvSubTotal, Button btnPurchase) {
+    public CartAdapter(
+            ArrayList<Product> products, MaterialTextView tvSubTotal, Button btnPurchase
+    ) {
         this.products = products;
         this.productsSetArray = new ArrayList<>(new HashSet<>(products));
         this.tvSubTotal = tvSubTotal;
@@ -39,7 +41,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public CartAdapter.CartViewHolder onCreateViewHolder(
             @NonNull ViewGroup parent, int viewType
     ) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart, parent, false);
+        View view =
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart, parent, false);
         return new CartViewHolder(view);
     }
 
@@ -82,17 +85,18 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             ivPhoto.setImageResource(product.getPhoto());
             tvName.setText(product.getName());
             tvAmount.setText(String.valueOf(amount));
-            tvPrice.setText("Rp. "+ ExtraFunc.convertPrice(Data.store.getProduct(this.product.getName()).getPrice()));
+
+            Product prod = Data.store.getProduct(this.product.getName());
+            tvPrice.setText("Rp. " + ExtraFunc.convertPrice(prod.getPrice()));
             setButton();
 
             int amountOfProduct = Data.store.getProduct(this.product.getName()).getAmount();
             if(amount > amountOfProduct) {
-                for(int i = 0; i < amount-amountOfProduct; i++) {
+                for(int i = 0; i < amount - amountOfProduct; i++) {
                     Data.currentUser.removeWaitingCartProduct(this.product.getName());
                 }
                 productsSetArray.remove(product);
-                tvSubTotal.setText("Rp. "+ ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
-                notifyDataSetChanged();
+                updateSubTotal();
             }
 
             if(amount > 1) {
@@ -120,6 +124,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             }
         }
 
+        private void updateSubTotal() {
+            int priceProduct = Data.currentUser.getPriceCartProduct();
+            tvSubTotal.setText("Rp. " + ExtraFunc.convertPrice(priceProduct));
+            notifyDataSetChanged();
+        }
+
         @Override
         public void onClick(View view) {
             switch(view.getId()) {
@@ -128,22 +138,19 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                         Data.currentUser.removeWaitingCartProduct(this.product.getName());
                     }
                     productsSetArray.remove(product);
-                    tvSubTotal.setText("Rp. "+ ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
-                    notifyDataSetChanged();
+                    updateSubTotal();
                     setButton();
                     break;
                 case R.id.btn_cart_increase_amount:
                     if(amount < Data.store.getProduct(this.product.getName()).getAmount()) {
                         Data.currentUser.addWaitingCartProduct(this.product);
-                        tvSubTotal.setText("Rp. "+ ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
-                        notifyDataSetChanged();
+                        updateSubTotal();
                     }
                     break;
                 case R.id.btn_cart_reduce_amount:
                     if(amount > 1) {
                         Data.currentUser.removeWaitingCartProduct(this.product.getName());
-                        tvSubTotal.setText("Rp. "+ ExtraFunc.convertPrice(Data.currentUser.getPriceCartProduct()));
-                        notifyDataSetChanged();
+                        updateSubTotal();
                     }
                     setButton();
                     break;
@@ -151,6 +158,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         }
 
     }
+
 }
 
 

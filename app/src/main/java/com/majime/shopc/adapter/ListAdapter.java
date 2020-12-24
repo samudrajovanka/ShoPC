@@ -1,6 +1,5 @@
 package com.majime.shopc.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import com.majime.shopc.R;
 import java.util.ArrayList;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder> {
+
     private ArrayList<String> list;
     private ArrayList<Boolean> isActive = new ArrayList<>();
     private ProductAdapter productAdapter;
@@ -30,7 +30,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     public ListAdapter.ListViewHolder onCreateViewHolder(
             @NonNull ViewGroup parent, int viewType
     ) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
+        View view =
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         return new ListAdapter.ListViewHolder((view));
     }
 
@@ -51,6 +52,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     }
 
     public class ListViewHolder extends RecyclerView.ViewHolder {
+
         TextView tvFilter;
         View itemView;
 

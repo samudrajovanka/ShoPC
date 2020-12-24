@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
@@ -19,7 +18,8 @@ import com.majime.shopc.adapter.ProductAdapter;
 import com.majime.shopc.data.Data;
 import com.majime.shopc.utils.ItemOffsetDecoration;
 
-public class HomeFragment extends Fragment implements View.OnClickListener{
+public class HomeFragment extends Fragment implements View.OnClickListener {
+
     private RecyclerView rvBestSeller;
 
     @Override
@@ -61,15 +61,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private void showGridView() {
         rvBestSeller.setHasFixedSize(true);
         rvBestSeller.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        ProductAdapter productAdapter = new ProductAdapter(getActivity(), Data.store.getProductsBestSeller());
-        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.normal, true);
+        ProductAdapter productAdapter =
+                new ProductAdapter(getActivity(), Data.store.getProductsBestSeller());
+        ItemOffsetDecoration itemDecoration =
+                new ItemOffsetDecoration(getActivity(), R.dimen.normal, true);
         rvBestSeller.addItemDecoration(itemDecoration);
         rvBestSeller.setAdapter(productAdapter);
     }
 
     private boolean loadFragment(Fragment fragment) {
-        if (fragment != null) {
-            getActivity().getSupportFragmentManager().beginTransaction()
+        if(fragment != null) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
                     .replace(R.id.fl_fragment_main, fragment)
                     .commit();
             return true;
@@ -82,14 +85,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         switch(view.getId()) {
             case R.id.btn_dashboard_category_hardware:
                 Bundle bundleHardware = new Bundle();
-                bundleHardware.putString(FilterProductFragment.key, getString(R.string.title_hardware));
+                bundleHardware.putString(FilterProductFragment.key,
+                                         getString(R.string.title_hardware)
+                );
                 Fragment fragmentHardware = new FilterProductFragment();
                 fragmentHardware.setArguments(bundleHardware);
                 loadFragment(fragmentHardware);
                 break;
             case R.id.btn_dashboard_category_software:
                 Bundle bundleSoftware = new Bundle();
-                bundleSoftware.putString(FilterProductFragment.key, getString(R.string.title_software));
+                bundleSoftware.putString(FilterProductFragment.key,
+                                         getString(R.string.title_software)
+                );
                 Fragment fragmentSoftware = new FilterProductFragment();
                 fragmentSoftware.setArguments(bundleSoftware);
                 loadFragment(fragmentSoftware);

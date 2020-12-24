@@ -25,7 +25,7 @@
 
                 <TextView
                     android:id="@+id/tv_title_change_data_profile"
-                    style="@style/TextLargeBlack"
+                    style="@style/TextHugeBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/title_edit_data_profile"
@@ -91,7 +91,7 @@
 
                 <TextView
                     android:id="@+id/tv_title_change_password"
-                    style="@style/TextLargeBlack"
+                    style="@style/TextHugeBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/title_edit_password"

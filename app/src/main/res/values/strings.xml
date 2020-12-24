@@ -1,27 +1,25 @@
 <resources>
     <string name="app_name">ShoPC</string>
-    <string name="login_title">Login</string>
+    <string name="login_title">Log In</string>
     <string name="username_title">Username</string>
     <string name="name_title">Name</string>
     <string name="address_title">Address</string>
     <string name="age_title">Age</string>
     <string name="gender_title">Gender</string>
+    <string name="password_title">Password</string>
     <string name="confirm_password_title">Confirm Password</string>
     <string name="register_title">Register</string>
-    <string name="add_saldo">Add Saldo</string>
-    <string name="password_title">Password</string>
+    <string name="add_saldo_title">Add Saldo</string>
     <string name="register_subtitle">Don’t have an account? Register</string>
     <string name="here_register">Here</string>
     <string name="alert_login">Username and Password cannot be blank</string>
-    <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
     <string name="male">Male</string>
-    <string name="amount_title">Enter Amount</string>
     <string name="female">Female</string>
+    <string name="amount_title">Enter Amount</string>
 
-    <!-- Filter Product -->
     <string name="filter_product_sort_all">All</string>
     <string-array name="component_product_hardware">
         <item>Motherboard</item>
@@ -37,7 +35,6 @@
         <item>Antivirus</item>
     </string-array>
 
-    <!-- Edit Profile -->
     <string name="title_edit_data_profile">Change Profile Data</string>
     <string name="title_edit_password">Change Password</string>
     <string name="current_password">Current Password</string>
@@ -60,19 +57,17 @@
     <string name="length_product">Length</string>
     <string name="frequency_product">Frequency</string>
     <string name="value_merk_product">Intel</string>
-    <string name="value_type_product">i7</string>
-    <string name="value_pin_product">1331</string>
-    <string name="value_socket_product">LGA</string>
-    <string name="value_core_product">8</string>
-    <string name="value_weight_product">6 gram</string>
-    <string name="value_height_product">6 cm</string>
-    <string name="value_width_product">9 cm</string>
-    <string name="value_length_product">6 cm</string>
-    <string name="value_frequency_product">5 GHz</string>
+    <!--<string name="value_type_product">i7</string>-->
+    <!--<string name="value_pin_product">1331</string>-->
+    <!--<string name="value_socket_product">LGA</string>-->
+    <!--<string name="value_core_product">8</string>-->
+    <!--<string name="value_weight_product">6 gram</string>-->
+    <!--<string name="value_height_product">6 cm</string>-->
+    <!--<string name="value_width_product">9 cm</string>-->
+    <!--<string name="value_length_product">6 cm</string>-->
+    <!--<string name="value_frequency_product">5 GHz</string>-->
     <string name="add_to_cart">Add to Cart</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="alert_confirm_password">Password and Password Confirmation is incorrect</string>
     <string name="alert_success_register">Registration is successful</string>
     <string name="alert_failed_login">Incorrect username or password</string>
@@ -83,15 +78,13 @@
     <string name="alert_username_maximal_characters">Username maximum 30 characters</string>
     <string name="alert_username_start_and_end_with_space">Make sure it doesn\'t start or end with a space</string>
 
-    <!--Dashboard    -->
     <string name="title_hardware">Hardware</string>
     <string name="title_software">Software</string>
     <string name="title_best_seller">Best Seller</string>
 
-    <!--Category         -->
     <string name="title_product_category">Product Category</string>
     <string name="product_name">intel core i7-10700K 3.8 Ghz</string>
-    <string name="product_price">Rp 5.841.000</string>
+    <string name="product_price">Rp. 5.841.000</string>
     <string name="memory_product">Memory</string>
     <string name="ddr_type_product">DDR Type</string>
     <string name="connection_product">Connection</string>
@@ -103,34 +96,21 @@
     <string name="version_soft_product">Version</string>
     <string name="size_soft_product">Size</string>
 
-    <!--Profile     -->
     <string name="profile_name">Jovanka Samudra</string>
     <string name="profile_username">samudrajovanka</string>
-    <string name="edit_profile">Edit Profile</string>
     <string name="saldo_title">Saldo</string>
-    <string name="add_saldo_title">Add Saldo</string>
     <string name="edit_profile_title">Edit Profile</string>
     <string name="delete_account_title">Delete Account</string>
     <string name="delete_account_success">Account deleted successfully</string>
-    <string name="title_activity_add_saldo">add_saldo</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
-    <string name="amount">Rp. 0</string>
+
     <string name="payment_method_title">Payment Method</string>
-    <string name="cash">Cash</string>
-    <string name="debit">debit</string>
-    <string name="confirm">confirm</string>
+    <string name="title_cash">Cash</string>
+    <string name="title_debit">Debit</string>
+    <string name="confirm">Confirm</string>
     <string name="debit_id_title">Debit ID</string>
     <string name="total_price">Total Price</string>
     <string name="title_pay">Pay</string>
-    <string name="title_debit_id">Debit id</string>
     <string name="hint_debit_id">xxxx-xxxx-xxxx-xxxx</string>
-    <string name="title_payment_method">Payment Method :</string>
-    <string name="title_cash">Cash</string>
-    <string name="title_debit">Debit</string>
     <string name="shipping_title">Shipping</string>
     <string name="amount_product_buy">x2</string>
     <string name="paymeny_title">Payment</string>
@@ -139,13 +119,12 @@
     <string name="alert_add_saldo_successful">Add saldo successful</string>
     <string name="ok">Ok</string>
     <string name="log_out_title">Log Out</string>
-    <string name="alert_digit_saldo">Saldo cannot be more than 6 digits</string>
+    <string name="alert_digit_saldo">Saldo cannot be more than 7 digits</string>
     <string name="alert_saldo_maximum">Your saldo is maximum</string>
-    <string name="alert_blank_field_edit_profile">Field is blank.</string>
-    <string name="success_edit_profile">Profile edit successful.</string>
+    <string name="alert_blank_field_edit_profile">Field is blank</string>
+    <string name="success_edit_profile">Profile edit successful</string>
     <string name="alert_data_incorrect">Make sure data is correct</string>
 
-    <!--Cart    -->
     <string name="title_purchase">Purchase</string>
     <string name="title_sub_total">Sub Total:</string>
     <string name="label_plus">+</string>
@@ -153,5 +132,7 @@
     <string name="alert_success_add_to_cart">Product has entered the cart</string>
     <string name="alert_payment_failed">Payment Failed\nYour saldo isn’t enough</string>
     <string name="alert_payment_success">Payment successful</string>
+    <string name="amount_hint">Rp. 0</string>
+    <string name="setting_title">Pengaturan</string>
 
 </resources>

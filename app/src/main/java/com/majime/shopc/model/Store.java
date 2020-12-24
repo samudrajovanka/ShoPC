@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 public class Store {
+
     private String name, address;
     private ArrayList<Product> products;
 
@@ -64,13 +65,13 @@ public class Store {
 
         if(title.equals("Hardware")) {
             for(Product product : this.products) {
-                if(product instanceof  Hardware) {
+                if(product instanceof Hardware) {
                     products.add(product);
                 }
             }
         } else {
             for(Product product : this.products) {
-                if(product instanceof  Software) {
+                if(product instanceof Software) {
                     products.add(product);
                 }
             }
@@ -80,7 +81,7 @@ public class Store {
     }
 
     public Product getProduct(String nameProduct) {
-        for(Product product: this.products) {
+        for(Product product : this.products) {
             if(product.getName().equalsIgnoreCase(nameProduct)) {
                 return product;
             }
@@ -98,7 +99,7 @@ public class Store {
 
     public boolean removeProduct(String nameProduct) {
         int i = 0;
-        for(Product product: this.products) {
+        for(Product product : this.products) {
             if(product.getName().equalsIgnoreCase(nameProduct)) {
                 this.removeProduct(i);
 
@@ -139,25 +140,46 @@ public class Store {
         int totalPrice = 0;
         if(user.amountOfCartProduct() == 1)
             totalPrice = user.getPriceCartProduct() + calculate(shipping, payment);
-        else
-            totalPrice = user.getPriceCartProduct() + calculate(user.amountOfCartProduct(), shipping, payment);
+        else totalPrice = user.getPriceCartProduct() +
+                          calculate(user.amountOfCartProduct(), shipping, payment);
 
-        if(user.getSaldo() >= totalPrice) {
-            user.setSaldo(user.getSaldo() - totalPrice);
+        if(payment instanceof Cash) {
+            if(user.getSaldo() >= totalPrice) {
+                // pembelian berhasil jika saldo user tersedia
+                user.setSaldo(user.getSaldo() - totalPrice);
+                user.addWaitingListProduct(user.getWaitingCartProducts());
+
+                ArrayList<Product> productsSetArray =
+                        new ArrayList<>(new HashSet<>(user.getWaitingCartProducts()));
+                // mengurangi stok sesuai dengan barang yang dibeli user
+                for(Product product : productsSetArray) {
+                    int currentAmount = this.getProduct(product.getName()).getAmount();
+                    int amountBuying =
+                            Collections.frequency(user.getWaitingCartProducts(), product);
+                    this.getProduct(product.getName()).setAmount(currentAmount - amountBuying);
+                }
+
+                user.removeAllWaitingCartProducts();
+                return true;
+            }
+        } else if(payment instanceof Debit) {
+            // pembayaran lewat debit user
             user.addWaitingListProduct(user.getWaitingCartProducts());
 
-            ArrayList<Product> productsSetArray = new ArrayList<>(new HashSet<>(user.getWaitingCartProducts()));
+            ArrayList<Product> productsSetArray =
+                    new ArrayList<>(new HashSet<>(user.getWaitingCartProducts()));
+            // mengurangi stok sesuai dengan barang yang dibeli user
             for(Product product : productsSetArray) {
                 int currentAmount = this.getProduct(product.getName()).getAmount();
                 int amountBuying = Collections.frequency(user.getWaitingCartProducts(), product);
                 this.getProduct(product.getName()).setAmount(currentAmount - amountBuying);
             }
-            
+
             user.removeAllWaitingCartProducts();
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
 }

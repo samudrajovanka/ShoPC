@@ -12,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.majime.shopc.R;
+import com.majime.shopc.data.Data;
 import com.majime.shopc.ui.login.LoginActivity;
+import com.majime.shopc.ui.main.MainActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -39,7 +41,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                if(Data.isLogged) {
+                    startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+                } else {
+                    startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                }
                 finish();
             }
         }, splashDelay);

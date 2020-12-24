@@ -87,7 +87,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         btnToggleNewPassword = findViewById(R.id.ib_toggle_new_password_edit_profile);
         btnToggleConfirmPassword = findViewById(R.id.ib_toggle_confirm_new_password_edit_profile);
 
-        tvToolbar.setText(getString(R.string.edit_profile));
+        tvToolbar.setText(getString(R.string.edit_profile_title));
         etName.setText(Data.currentUser.getName());
         etAddress.setText(Data.currentUser.getAddress());
 

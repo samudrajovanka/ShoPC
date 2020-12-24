@@ -1,7 +1,6 @@
 package com.majime.shopc.ui.productDetail;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +35,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class ProductDetailActivity extends AppCompatActivity implements View.OnClickListener{
+public class ProductDetailActivity extends AppCompatActivity implements View.OnClickListener {
+
     public final static String key_name = "NAME";
     private Product product;
     private RecyclerView rvSpecificProduct;
@@ -73,7 +73,13 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         tvNameProduct.setText(product.getName());
         tvComponentProduct.setText(product.getClass().getSimpleName());
         tvPriceProduct.setText("Rp. " + ExtraFunc.convertPrice(product.getPrice()));
-        ExtraFunc.setStarRating(product.getRating(), ivRating1, ivRating2, ivRating3, ivRating4, ivRating5);
+        ExtraFunc.setStarRating(product.getRating(),
+                                ivRating1,
+                                ivRating2,
+                                ivRating3,
+                                ivRating4,
+                                ivRating5
+        );
         tvAmountProduct.setText(String.valueOf(product.getAmount()));
         getData(product);
         showSpecificDetailProduct();

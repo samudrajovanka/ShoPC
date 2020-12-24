@@ -28,6 +28,7 @@ import com.majime.shopc.utils.ExtraFunc;
 import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
+
     private ArrayList<Product> products, productsFull;
     private Context context;
 
@@ -55,7 +56,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                         if(product instanceof Motherboard) {
                             productsFilter.add(product);
                         }
-                    } else if (filterPattern.equals("processor")) {
+                    } else if(filterPattern.equals("processor")) {
                         if(product instanceof Processor) {
                             productsFilter.add(product);
                         }
@@ -114,7 +115,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public ProductAdapter.ProductViewHolder onCreateViewHolder(
             @NonNull ViewGroup parent, int viewType
     ) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_product, parent, false);
         return new ProductViewHolder(view);
     }
 
@@ -154,7 +156,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             tvName.setText(product.getName());
             tvPrice.setText("Rp. " + ExtraFunc.convertPrice((product.getPrice())));
 
-            ExtraFunc.setStarRating(product.getRating(), ivRating1, ivRating2, ivRating3, ivRating4, ivRating5);
+            ExtraFunc.setStarRating(
+                    product.getRating(),
+                    ivRating1,
+                    ivRating2,
+                    ivRating3,
+                    ivRating4,
+                    ivRating5
+            );
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

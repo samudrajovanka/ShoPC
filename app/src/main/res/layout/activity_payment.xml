@@ -15,7 +15,6 @@
         android:layout_below="@id/toolbar">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="@dimen/small_to_normal"
             android:id="@+id/rv_product_payment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -28,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="330dp"
             android:background="@color/colorWhite"
-            android:elevation="2dp"
+            android:elevation="@dimen/very_small"
             app:layout_constraintBottom_toTopOf="@id/container_detail_price">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,9 +53,9 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_address_user_payment"
                         style="@style/InputStyleLogin"
-                        android:inputType="text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="text"
                         android:textColor="@color/colorBlack"
                         app:layout_constraintTop_toBottomOf="@id/tv_address_title_payment"/>
 
@@ -107,7 +106,7 @@
                         style="@style/TextLargeWhite"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/title_payment_method"
+                        android:text="@string/payment_method_title"
                         android:textColor="@color/colorBlack"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -193,7 +192,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/small"
-                        android:text="@string/title_debit_id"
+                        android:text="@string/debit_id_title"
                         android:textColor="@color/colorBlack"
                         app:layout_constraintBottom_toTopOf="@id/et_debit_id_payment"
                         app:layout_constraintStart_toStartOf="parent"/>
@@ -204,9 +203,9 @@
                         android:layout_height="40dp"
                         android:background="@drawable/bg_rect_primary_rad_10"
                         android:gravity="center"
-                        android:maxLength="16"
-                        android:inputType="number"
                         android:hint="@string/hint_debit_id"
+                        android:inputType="number"
+                        android:maxLength="16"
                         android:textColor="@color/colorWhite"
                         android:textColorHint="@color/colorGrey"
                         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -235,8 +234,8 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <com.google.android.material.textview.MaterialTextView
-                style="@style/TextLargeWhite"
                 android:id="@+id/tv_total_payment"
+                style="@style/TextLargeWhite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/large"
@@ -247,6 +246,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_btn_pay"
+                style="@style/TextHugeBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_rect_primary_radstart_10"
@@ -255,7 +255,6 @@
                 android:paddingEnd="46dp"
                 android:text="@string/title_pay"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_huge"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"/>
 

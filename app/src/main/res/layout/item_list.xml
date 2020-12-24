@@ -6,6 +6,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_sort_btn_all"
+        style="@style/TextNormalWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_rect_primary_rad_10"
@@ -14,8 +15,6 @@
         android:paddingRight="@dimen/small_to_normal"
         android:paddingBottom="2dp"
         android:text="@string/filter_product_sort_all"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_normal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 

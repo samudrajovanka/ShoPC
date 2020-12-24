@@ -1,6 +1,7 @@
 package com.majime.shopc.ui.home;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class FilterProductFragment extends Fragment implements View.OnClickListener {
+
     public static final String key = "TITLE";
     private RecyclerView rvFilterProduct, rvListFilter;
     private String title;
@@ -34,8 +35,9 @@ public class FilterProductFragment extends Fragment implements View.OnClickListe
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(
+            LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState
+    ) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_filter_product, container, false);
         initiateUi(view);
@@ -60,8 +62,10 @@ public class FilterProductFragment extends Fragment implements View.OnClickListe
 
     private void showRecylerViewList() {
         ArrayList<String> list = new ArrayList<>();
-        String[] componentHardware = getResources().getStringArray(R.array.component_product_hardware);
-        String[] componentSoftware = getResources().getStringArray(R.array.component_product_software);
+        String[] componentHardware =
+                getResources().getStringArray(R.array.component_product_hardware);
+        String[] componentSoftware =
+                getResources().getStringArray(R.array.component_product_software);
         list.add("All");
 
         if(title.equals(getString(R.string.title_hardware))) {
@@ -71,10 +75,14 @@ public class FilterProductFragment extends Fragment implements View.OnClickListe
         }
 
         rvListFilter.setHasFixedSize(true);
-        rvListFilter.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        rvListFilter.setLayoutManager(new LinearLayoutManager(
+                getContext(),
+                LinearLayoutManager.HORIZONTAL,
+                false
+        ));
         ListAdapter listAdapter = new ListAdapter(list, productAdapter);
-        ItemOffsetDecoration
-                itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.small_to_normal, false);
+        ItemOffsetDecoration itemDecoration =
+                new ItemOffsetDecoration(getActivity(), R.dimen.small_to_normal, false);
         rvListFilter.addItemDecoration(itemDecoration);
         rvListFilter.setAdapter(listAdapter);
     }
@@ -84,8 +92,8 @@ public class FilterProductFragment extends Fragment implements View.OnClickListe
         rvFilterProduct.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         productAdapter = new ProductAdapter(getActivity(), Data.store.getProductsByTitle(title));
 
-        ItemOffsetDecoration
-                itemDecoration = new ItemOffsetDecoration(getActivity(), R.dimen.normal, true);
+        ItemOffsetDecoration itemDecoration =
+                new ItemOffsetDecoration(getActivity(), R.dimen.normal, true);
         rvFilterProduct.addItemDecoration(itemDecoration);
         rvFilterProduct.setAdapter(productAdapter);
     }
@@ -94,7 +102,8 @@ public class FilterProductFragment extends Fragment implements View.OnClickListe
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.btn_back_toolbar:
-                getActivity().getSupportFragmentManager().beginTransaction()
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
                         .replace(R.id.fl_fragment_main, new HomeFragment())
                         .commit();
                 break;

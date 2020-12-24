@@ -12,7 +12,8 @@ import com.majime.shopc.R;
 
 import java.util.ArrayList;
 
-public class SpecificProductAdapter extends RecyclerView.Adapter<SpecificProductAdapter.SpecificProductHolder> {
+public class SpecificProductAdapter
+        extends RecyclerView.Adapter<SpecificProductAdapter.SpecificProductHolder> {
 
     ArrayList<String> title, value;
 
@@ -26,7 +27,8 @@ public class SpecificProductAdapter extends RecyclerView.Adapter<SpecificProduct
     public SpecificProductAdapter.SpecificProductHolder onCreateViewHolder(
             @NonNull ViewGroup parent, int viewType
     ) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_specific_product, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_specific_product, parent, false);
         return new SpecificProductAdapter.SpecificProductHolder((view));
     }
 

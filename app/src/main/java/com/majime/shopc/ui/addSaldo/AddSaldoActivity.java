@@ -19,8 +19,6 @@ import com.majime.shopc.ui.alert.AlertActivity;
 public class AddSaldoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText etAmount, etDebitId;
-    private String amountStr, debitId;
-    private Button confirm;
     private ConstraintLayout containerCash, containerDebit, containerDebitId;
     private boolean isDebit = false;
 
@@ -37,14 +35,14 @@ public class AddSaldoActivity extends AppCompatActivity implements View.OnClickL
         ImageButton btnBack = findViewById(R.id.btn_back_toolbar);
         containerCash = findViewById(R.id.container_cash);
         containerDebit = findViewById(R.id.container_debit);
-        confirm = findViewById(R.id.btn_add_saldo);
+        Button confirm = findViewById(R.id.btn_add_saldo);
         etAmount = findViewById(R.id.et_amount);
         containerDebitId = findViewById(R.id.container_debit_id_add_saldo);
         etDebitId = findViewById(R.id.et_debit_id);
 
-        titleToolbar.setText(getString(R.string.add_saldo));
+        titleToolbar.setText(getString(R.string.add_saldo_title));
 
-        //this for making them have job to do and thats a click
+        // memberi listener untuk dapat di klik
         btnBack.setOnClickListener(this);
         containerCash.setOnClickListener(this);
         containerDebit.setOnClickListener(this);
@@ -59,38 +57,55 @@ public class AddSaldoActivity extends AppCompatActivity implements View.OnClickL
                 onBackPressed();
                 break;
             case R.id.btn_add_saldo:
-                amountStr = etAmount.getText().toString();
+                String amountStr = etAmount.getText().toString();
                 if(amountStr.length() > 7) {
                     Toast.makeText(this, R.string.alert_digit_saldo, Toast.LENGTH_SHORT).show();
                 } else if(amountStr.length() != 0) {
                     if(isDebit) {
-                        debitId = etDebitId.getText().toString().trim();
+                        String debitId = etDebitId.getText().toString().trim();
                         if(debitId.length() != 16) {
-                            Toast.makeText(this, R.string.alert_debit_id_invalid, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(
+                                    this,
+                                    R.string.alert_debit_id_invalid,
+                                    Toast.LENGTH_SHORT
+                            ).show();
                         } else {
                             if(Data.currentUser.getSaldo() < 9999999) {
-                                Data.currentUser.setSaldo(Data.currentUser.getSaldo() + Integer.parseInt(amountStr));
+                                Data.currentUser.setSaldo(
+                                        Data.currentUser.getSaldo() + Integer.parseInt(amountStr));
 
                                 Intent intent = new Intent(this, AlertActivity.class);
                                 intent.putExtra(AlertActivity.keyIcon, "success");
-                                intent.putExtra(AlertActivity.keyTitleAlert, getString(R.string.alert_add_saldo_successful));
+                                intent.putExtra(
+                                        AlertActivity.keyTitleAlert,
+                                        getString(R.string.alert_add_saldo_successful)
+                                );
 
                                 startActivity(intent);
                             } else {
-                                Toast.makeText(this, R.string.alert_saldo_maximum, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(
+                                        this,
+                                        R.string.alert_saldo_maximum,
+                                        Toast.LENGTH_SHORT
+                                ).show();
                             }
                         }
                     } else {
                         if(Data.currentUser.getSaldo() < 9999999) {
-                            Data.currentUser.setSaldo(Data.currentUser.getSaldo() + Integer.parseInt(amountStr));
+                            Data.currentUser.setSaldo(
+                                    Data.currentUser.getSaldo() + Integer.parseInt(amountStr));
 
                             Intent intent = new Intent(this, AlertActivity.class);
                             intent.putExtra(AlertActivity.keyIcon, "success");
-                            intent.putExtra(AlertActivity.keyTitleAlert, getString(R.string.alert_add_saldo_successful));
+                            intent.putExtra(
+                                    AlertActivity.keyTitleAlert,
+                                    getString(R.string.alert_add_saldo_successful)
+                            );
 
                             startActivity(intent);
                         } else {
-                            Toast.makeText(this, R.string.alert_saldo_maximum, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, R.string.alert_saldo_maximum, Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     }
                 } else {

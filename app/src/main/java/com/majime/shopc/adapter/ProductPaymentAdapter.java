@@ -17,9 +17,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
-public class ProductPaymentAdapter extends RecyclerView.Adapter<ProductPaymentAdapter.ProductPaymentHolder> {
+public class ProductPaymentAdapter
+        extends RecyclerView.Adapter<ProductPaymentAdapter.ProductPaymentHolder> {
 
-    ArrayList<Product> products, productsSetArray;;
+    ArrayList<Product> products, productsSetArray;
 
     public ProductPaymentAdapter(ArrayList<Product> products) {
         this.products = products;
@@ -31,7 +32,8 @@ public class ProductPaymentAdapter extends RecyclerView.Adapter<ProductPaymentAd
     public ProductPaymentAdapter.ProductPaymentHolder onCreateViewHolder(
             @NonNull ViewGroup parent, int viewType
     ) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product_payment, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_product_payment, parent, false);
         return new ProductPaymentAdapter.ProductPaymentHolder((view));
     }
 

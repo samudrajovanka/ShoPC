@@ -17,7 +17,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_profile_name"
-            style="@style/TextLargeBlack"
+            style="@style/TextHugeBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/profile_name"
@@ -26,7 +26,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_profile_username"
-            style="@style/ProfileUsername"
+            style="@style/TextNormalGrey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/profile_username"
@@ -77,7 +77,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_amount_saldo_profile"
-                style="@style/NominalSaldo"
+                style="@style/TextMediumPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/very_small"
@@ -88,7 +88,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container_btn_add_saldo"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:paddingTop="@dimen/large"
             android:paddingBottom="@dimen/large"
@@ -97,7 +97,7 @@
             app:layout_constraintStart_toEndOf="@id/container_saldo_price"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/btn_add_saldo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_add_saldo_title"
-                style="@style/AddSaldo"
+                style="@style/TextNormalWhite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_saldo_title"
