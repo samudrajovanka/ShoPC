@@ -4,6 +4,7 @@
     android:layout_width="130dp"
     android:layout_height="195dp"
     android:layout_gravity="center"
+    android:layout_marginBottom="@dimen/small_to_normal"
     android:background="@drawable/bg_rect_blue_rad_10"
     android:backgroundTint="@color/colorWhite"
     android:elevation="@dimen/very_small">

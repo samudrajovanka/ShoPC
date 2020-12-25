@@ -134,5 +134,11 @@
     <string name="alert_payment_success">Payment successful</string>
     <string name="amount_hint">Rp. 0</string>
     <string name="setting_title">Pengaturan</string>
+    <string name="alert_cart_is_empty">The cart is empty</string>
+    <string name="cancel">Cancel</string>
+    <string name="alert_subtitle_log_out">Are you sure to Log Out?</string>
+    <string name="product_on_delivery_title">Product on delivery</string>
+    <string name="alert_sub_title_delete_account">Are you sure to delete this account</string>
+    <string name="no_product_were_delivered">No product were delivered</string>
 
 </resources>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,17 +13,19 @@ import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
 import com.majime.shopc.ui.main.MainActivity;
 
-public class AlertActivity extends AppCompatActivity implements View.OnClickListener{
+public class AlertActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String keyIcon = "ICON";
-    public static final String keyTitleAlert = "ALERT";
-    private String icon, alert;
-    ImageView ivIcon;
+    public static final String keySubTitleAlert = "SUB_ALERT";
+
+    private String icon;
+    private ImageView ivIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert);
+
         initiateUi();
     }
 
@@ -32,10 +35,10 @@ public class AlertActivity extends AppCompatActivity implements View.OnClickList
         Button btnOk = findViewById(R.id.btn_ok);
 
         icon = getIntent().getStringExtra(AlertActivity.keyIcon);
-        alert = getIntent().getStringExtra(AlertActivity.keyTitleAlert);
+        String alert = getIntent().getStringExtra(AlertActivity.keySubTitleAlert);
 
-        setIcon();
         tvAlert.setText(alert);
+        setIcon();
 
         btnOk.setOnClickListener(this);
     }
@@ -43,7 +46,7 @@ public class AlertActivity extends AppCompatActivity implements View.OnClickList
     private void setIcon() {
         if(icon.equals("success")) {
             ivIcon.setImageResource(R.drawable.ic_success);
-        } else if (icon.equals("failed")) {
+        } else if(icon.equals("failed")) {
             ivIcon.setImageResource(R.drawable.ic_cross);
         }
     }
@@ -51,7 +54,7 @@ public class AlertActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
-             case R.id.btn_ok:
+            case R.id.btn_ok:
                 startActivity(new Intent(this, MainActivity.class));
                 break;
         }

@@ -155,7 +155,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container_btn_log_out_account"
+        android:id="@+id/container_btn_on_delivery"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="@dimen/small_to_normal"
@@ -163,6 +163,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/container_btn_edit_profile">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_on_delivery_btn"
+            style="@style/TextNormalWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_to_normal"
+            android:text="@string/product_on_delivery_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_arrow_right_on_delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_to_normal"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_btn_log_out_account"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/small_to_normal"
+        android:background="@drawable/bg_rect_blue_rad_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_btn_on_delivery">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_log_out_account_btn"

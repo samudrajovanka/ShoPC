@@ -10,16 +10,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
 
-    private int mItemOffset;
-    private boolean isGrid;
+    private int mItemOffsetLeft, mItemOffsetTop, mItemOffsetRight, mItemOffsetBottom;
+    private String used;
 
     public ItemOffsetDecoration(
             @NonNull Context context,
-            @DimenRes int itemOffsetId,
-            boolean isGrid
+            @DimenRes int itemOffsetLeft,
+            @DimenRes int itemOffsetTop,
+            @DimenRes int itemOffsetRight,
+            @DimenRes int itemOffsetBottom,
+            String used
     ) {
-        mItemOffset = context.getResources().getDimensionPixelSize(itemOffsetId);
-        this.isGrid = isGrid;
+        mItemOffsetLeft = context.getResources().getDimensionPixelSize(itemOffsetLeft);
+        mItemOffsetTop = context.getResources().getDimensionPixelSize(itemOffsetTop);
+        mItemOffsetRight = context.getResources().getDimensionPixelSize(itemOffsetRight);
+        mItemOffsetBottom = context.getResources().getDimensionPixelSize(itemOffsetBottom);
+        this.used = used;
     }
 
     @Override
@@ -28,17 +34,21 @@ public class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
     ) {
         super.getItemOffsets(outRect, view, parent, state);
 
-        if(isGrid) {
-            if(parent.getChildLayoutPosition(view) % 2 == 1) {
-                outRect.left = mItemOffset;
+        if(used.equalsIgnoreCase("all")) {
+            outRect.set(mItemOffsetLeft, mItemOffsetTop, mItemOffsetRight, mItemOffsetBottom);
+        } else if(used.equalsIgnoreCase("first")) {
+            if(parent.getChildLayoutPosition(view) == 0) {
+                outRect.set(mItemOffsetLeft, mItemOffsetTop, mItemOffsetRight, mItemOffsetBottom);
             }
-            outRect.bottom = mItemOffset;
-        } else {
+        } else if(used.equalsIgnoreCase("odd")) {
+            if(parent.getChildLayoutPosition(view) % 2 == 1) {
+                outRect.set(mItemOffsetLeft, mItemOffsetTop, mItemOffsetRight, mItemOffsetBottom);
+            }
+        } else if(used.equalsIgnoreCase("not first")) {
             if(parent.getChildLayoutPosition(view) != 0) {
-                outRect.left = mItemOffset;
+                outRect.set(mItemOffsetLeft, mItemOffsetTop, mItemOffsetRight, mItemOffsetBottom);
             }
         }
-
     }
 
 }

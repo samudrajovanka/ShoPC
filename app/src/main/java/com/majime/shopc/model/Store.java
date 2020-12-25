@@ -157,6 +157,10 @@ public class Store {
                     int amountBuying =
                             Collections.frequency(user.getWaitingCartProducts(), product);
                     this.getProduct(product.getName()).setAmount(currentAmount - amountBuying);
+
+                    if(this.getProduct(product.getName()).getAmount() == 0) {
+                        this.removeProduct(product.getName());
+                    }
                 }
 
                 user.removeAllWaitingCartProducts();
@@ -173,6 +177,10 @@ public class Store {
                 int currentAmount = this.getProduct(product.getName()).getAmount();
                 int amountBuying = Collections.frequency(user.getWaitingCartProducts(), product);
                 this.getProduct(product.getName()).setAmount(currentAmount - amountBuying);
+
+                if(this.getProduct(product.getName()).getAmount() == 0) {
+                    this.removeProduct(product.getName());
+                }
             }
 
             user.removeAllWaitingCartProducts();

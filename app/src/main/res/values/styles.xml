@@ -43,6 +43,12 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="ButtonDangerStyle">
+        <item name="android:background">@drawable/bg_rect_red_rad_10</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
     <style name="TextStyleMethod">
         <item name="android:fontFamily">@font/ubuntu_regular</item>
         <item name="android:textColor">@color/colorWhite</item>

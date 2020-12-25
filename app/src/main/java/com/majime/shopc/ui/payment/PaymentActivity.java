@@ -19,10 +19,11 @@ import android.widget.Toast;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
-import com.majime.shopc.adapter.ProductPaymentAdapter;
+import com.majime.shopc.adapter.ProductFixAdapter;
 import com.majime.shopc.data.Data;
 import com.majime.shopc.ui.alert.AlertActivity;
 import com.majime.shopc.utils.ExtraFunc;
+import com.majime.shopc.utils.ItemOffsetDecoration;
 
 public class PaymentActivity extends AppCompatActivity
         implements View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -105,8 +106,11 @@ public class PaymentActivity extends AppCompatActivity
     private void showRecyclerProduct() {
         rvProduct.setHasFixedSize(true);
         rvProduct.setLayoutManager(new LinearLayoutManager(this));
-        ProductPaymentAdapter productPaymentAdapter =
-                new ProductPaymentAdapter(Data.currentUser.getWaitingCartProducts());
+        ProductFixAdapter productPaymentAdapter =
+                new ProductFixAdapter(Data.currentUser.getWaitingCartProducts());
+        ItemOffsetDecoration itemDecoration =
+                new ItemOffsetDecoration(this, R.dimen.zero, R.dimen.small_to_normal, R.dimen.zero, R.dimen.zero, "first");
+        rvProduct.addItemDecoration(itemDecoration);
         rvProduct.setAdapter(productPaymentAdapter);
     }
 
@@ -114,10 +118,10 @@ public class PaymentActivity extends AppCompatActivity
         Intent intent = new Intent(this, AlertActivity.class);
         if(isSuccess) {
             intent.putExtra(AlertActivity.keyIcon, "success");
-            intent.putExtra(AlertActivity.keyTitleAlert, getString(R.string.alert_payment_success));
+            intent.putExtra(AlertActivity.keySubTitleAlert, getString(R.string.alert_payment_success));
         } else {
             intent.putExtra(AlertActivity.keyIcon, "failed");
-            intent.putExtra(AlertActivity.keyTitleAlert, getString(R.string.alert_payment_failed));
+            intent.putExtra(AlertActivity.keySubTitleAlert, getString(R.string.alert_payment_failed));
         }
         startActivity(intent);
     }

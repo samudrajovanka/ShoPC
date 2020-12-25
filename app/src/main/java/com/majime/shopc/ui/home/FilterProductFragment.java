@@ -82,7 +82,7 @@ public class FilterProductFragment extends Fragment implements View.OnClickListe
         ));
         ListAdapter listAdapter = new ListAdapter(list, productAdapter);
         ItemOffsetDecoration itemDecoration =
-                new ItemOffsetDecoration(getActivity(), R.dimen.small_to_normal, false);
+                new ItemOffsetDecoration(getActivity(), R.dimen.normal, R.dimen.zero, R.dimen.zero, R.dimen.zero, "not first");
         rvListFilter.addItemDecoration(itemDecoration);
         rvListFilter.setAdapter(listAdapter);
     }
@@ -91,9 +91,8 @@ public class FilterProductFragment extends Fragment implements View.OnClickListe
         rvFilterProduct.setHasFixedSize(true);
         rvFilterProduct.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         productAdapter = new ProductAdapter(getActivity(), Data.store.getProductsByTitle(title));
-
         ItemOffsetDecoration itemDecoration =
-                new ItemOffsetDecoration(getActivity(), R.dimen.normal, true);
+                new ItemOffsetDecoration(getActivity(), R.dimen.normal, R.dimen.zero, R.dimen.zero, R.dimen.zero, "odd");
         rvFilterProduct.addItemDecoration(itemDecoration);
         rvFilterProduct.setAdapter(productAdapter);
     }

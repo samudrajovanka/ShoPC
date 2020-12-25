@@ -17,31 +17,31 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
-public class ProductPaymentAdapter
-        extends RecyclerView.Adapter<ProductPaymentAdapter.ProductPaymentHolder> {
+public class ProductFixAdapter
+        extends RecyclerView.Adapter<ProductFixAdapter.ProductPaymentHolder> {
 
     ArrayList<Product> products, productsSetArray;
 
-    public ProductPaymentAdapter(ArrayList<Product> products) {
+    public ProductFixAdapter(ArrayList<Product> products) {
         this.products = products;
         this.productsSetArray = new ArrayList<>(new HashSet<>(products));
     }
 
     @NonNull
     @Override
-    public ProductPaymentAdapter.ProductPaymentHolder onCreateViewHolder(
+    public ProductFixAdapter.ProductPaymentHolder onCreateViewHolder(
             @NonNull ViewGroup parent, int viewType
     ) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_product_payment, parent, false);
-        return new ProductPaymentAdapter.ProductPaymentHolder((view));
+        return new ProductFixAdapter.ProductPaymentHolder((view));
     }
 
     @Override
     public void onBindViewHolder(
-            @NonNull ProductPaymentAdapter.ProductPaymentHolder holder, int position
+            @NonNull ProductFixAdapter.ProductPaymentHolder holder, int position
     ) {
-        holder.bind(products.get(position));
+        holder.bind(productsSetArray.get(position));
     }
 
     @Override

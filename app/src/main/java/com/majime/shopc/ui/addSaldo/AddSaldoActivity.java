@@ -77,7 +77,7 @@ public class AddSaldoActivity extends AppCompatActivity implements View.OnClickL
                                 Intent intent = new Intent(this, AlertActivity.class);
                                 intent.putExtra(AlertActivity.keyIcon, "success");
                                 intent.putExtra(
-                                        AlertActivity.keyTitleAlert,
+                                        AlertActivity.keySubTitleAlert,
                                         getString(R.string.alert_add_saldo_successful)
                                 );
 
@@ -98,7 +98,7 @@ public class AddSaldoActivity extends AppCompatActivity implements View.OnClickL
                             Intent intent = new Intent(this, AlertActivity.class);
                             intent.putExtra(AlertActivity.keyIcon, "success");
                             intent.putExtra(
-                                    AlertActivity.keyTitleAlert,
+                                    AlertActivity.keySubTitleAlert,
                                     getString(R.string.alert_add_saldo_successful)
                             );
 

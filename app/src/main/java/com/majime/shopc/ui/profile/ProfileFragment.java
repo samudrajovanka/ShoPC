@@ -15,6 +15,9 @@ import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
 import com.majime.shopc.data.Data;
 import com.majime.shopc.ui.addSaldo.AddSaldoActivity;
+import com.majime.shopc.ui.alert.AlertDeleteAccountActivity;
+import com.majime.shopc.ui.alert.AlertLogOutActivity;
+import com.majime.shopc.ui.delivery.DeliveryActivity;
 import com.majime.shopc.ui.login.LoginActivity;
 import com.majime.shopc.utils.ExtraFunc;
 
@@ -43,6 +46,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         ConstraintLayout containerBtnAddSaldo = view.findViewById(R.id.container_btn_add_saldo);
         ConstraintLayout containerBtnEditProfile =
                 view.findViewById(R.id.container_btn_edit_profile);
+        ConstraintLayout containerBtnDelivery = view.findViewById(R.id.container_btn_on_delivery);
         ConstraintLayout containerBtnLogOut = view.findViewById(R.id.container_btn_log_out_account);
         ConstraintLayout containerBtnDeleteAccount =
                 view.findViewById(R.id.container_btn_delete_account);
@@ -53,6 +57,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         containerBtnAddSaldo.setOnClickListener(this);
         containerBtnEditProfile.setOnClickListener(this);
+        containerBtnDelivery.setOnClickListener(this);
         containerBtnLogOut.setOnClickListener(this);
         containerBtnDeleteAccount.setOnClickListener(this);
     }
@@ -66,17 +71,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             case R.id.container_btn_edit_profile:
                 getActivity().startActivity(new Intent(getContext(), EditProfileActivity.class));
                 break;
+            case R.id.container_btn_on_delivery:
+                getActivity().startActivity(new Intent(getContext(), DeliveryActivity.class));
+                break;
             case R.id.container_btn_log_out_account:
-                Data.isLogged = false;
-                getActivity().startActivity(new Intent(getContext(), LoginActivity.class));
-                getActivity().finish();
+                getActivity().startActivity(new Intent(getContext(), AlertLogOutActivity.class));
                 break;
             case R.id.container_btn_delete_account:
-                Toast.makeText(getActivity(), R.string.delete_account_success, Toast.LENGTH_SHORT)
-                        .show();
-                Data.users.remove(Data.currentUser);
-                getActivity().startActivity(new Intent(getContext(), LoginActivity.class));
-                getActivity().finish();
+                getActivity().startActivity(new Intent(getContext(), AlertDeleteAccountActivity.class));
                 break;
         }
     }

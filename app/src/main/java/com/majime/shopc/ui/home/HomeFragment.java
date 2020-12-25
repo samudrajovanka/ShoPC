@@ -64,7 +64,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         ProductAdapter productAdapter =
                 new ProductAdapter(getActivity(), Data.store.getProductsBestSeller());
         ItemOffsetDecoration itemDecoration =
-                new ItemOffsetDecoration(getActivity(), R.dimen.normal, true);
+                new ItemOffsetDecoration(getActivity(), R.dimen.normal, R.dimen.zero, R.dimen.zero, R.dimen.zero, "odd");
         rvBestSeller.addItemDecoration(itemDecoration);
         rvBestSeller.setAdapter(productAdapter);
     }

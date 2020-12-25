@@ -22,6 +22,7 @@
                 android:id="@+id/iv_image_product_detail"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:background="@color/colorWhite"
                 android:src="@drawable/processor_intel_core"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
