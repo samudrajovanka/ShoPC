@@ -140,5 +140,6 @@
     <string name="product_on_delivery_title">Product on delivery</string>
     <string name="alert_sub_title_delete_account">Are you sure to delete this account</string>
     <string name="no_product_were_delivered">No product were delivered</string>
+    <string name="copyright_credit">By Group 1 - 2020</string>
 
 </resources>

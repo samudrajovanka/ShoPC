@@ -11,4 +11,5 @@
     <color name="colorPrimary_50">#803853A1</color>
     <color name="colorTransparent">#00000000</color>
     <color name="colorDarkPrimary">#04174E</color>
+    <color name="colorViolet">#7375b6</color>
 </resources>
