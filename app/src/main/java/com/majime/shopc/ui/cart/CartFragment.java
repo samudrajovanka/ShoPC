@@ -60,7 +60,7 @@ public class CartFragment extends Fragment implements View.OnClickListener {
     }
 
     private void cekCart() {
-        if(Data.currentUser.getWaitingCartProducts().size() == 0) {
+        if(Data.currentUser.getProductsOnCart().size() == 0) {
             containerNoItem.setVisibility(View.VISIBLE);
             rvCartItems.setVisibility(View.GONE);
         } else {
@@ -72,7 +72,7 @@ public class CartFragment extends Fragment implements View.OnClickListener {
     private void showRecyclerView() {
         rvCartItems.setHasFixedSize(true);
         rvCartItems.setLayoutManager(new LinearLayoutManager(getActivity()));
-        CartAdapter cartAdapter = new CartAdapter(Data.currentUser.getWaitingCartProducts(),
+        CartAdapter cartAdapter = new CartAdapter(Data.currentUser.getProductsOnCart(),
                                                   titleSubTotal,
                                                   btnPurchase
         );

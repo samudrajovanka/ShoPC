@@ -107,7 +107,7 @@ public class PaymentActivity extends AppCompatActivity
         rvProduct.setHasFixedSize(true);
         rvProduct.setLayoutManager(new LinearLayoutManager(this));
         ProductFixAdapter productPaymentAdapter =
-                new ProductFixAdapter(Data.currentUser.getWaitingCartProducts());
+                new ProductFixAdapter(Data.currentUser.getProductsOnCart());
         ItemOffsetDecoration itemDecoration =
                 new ItemOffsetDecoration(this, R.dimen.zero, R.dimen.small_to_normal, R.dimen.zero, R.dimen.zero, "first");
         rvProduct.addItemDecoration(itemDecoration);

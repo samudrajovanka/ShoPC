@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
-
 public class Vga extends Hardware implements Frequency, Memory {
     private int frequency;
     private int sizeMemory;

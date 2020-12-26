@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
-
 public abstract class Software extends Product {
     private String version;
     private int size;

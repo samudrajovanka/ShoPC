@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
-
 public class Storage extends Hardware implements Frequency, Memory {
     private int frequency;
     private String connection;

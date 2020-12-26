@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
-
 public class Processor extends Hardware implements Socket, Frequency {
     private int pinAmount, frequency, coreAmount;
     private String supportedCpu;

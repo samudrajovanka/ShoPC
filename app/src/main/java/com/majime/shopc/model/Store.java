@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -14,13 +12,13 @@ public class Store {
     public Store() {
         this.name = "ShoPC";
         this.address = "Address";
-        this.products = new ArrayList<Product>();
+        this.products = new ArrayList<>();
     }
 
     public Store(String name, String address) {
         this.name = name;
         this.address = address;
-        this.products = new ArrayList<Product>();
+        this.products = new ArrayList<>();
     }
 
     public Store(String name, String address, ArrayList<Product> products) {
@@ -93,7 +91,7 @@ public class Store {
         this.products.add(product);
     }
 
-    public void addAllProduct(ArrayList<Product> products) {
+    public void addProducts(ArrayList<Product> products) {
         this.products.addAll(products);
     }
 
@@ -120,7 +118,7 @@ public class Store {
         return true;
     }
 
-    public int getAmountOfProduct() {
+    public int amountOfProduct() {
         return this.products.size();
     }
 
@@ -147,15 +145,15 @@ public class Store {
             if(user.getSaldo() >= totalPrice) {
                 // pembelian berhasil jika saldo user tersedia
                 user.setSaldo(user.getSaldo() - totalPrice);
-                user.addWaitingListProduct(user.getWaitingCartProducts());
+                user.addProductOnDelivery(user.getProductsOnCart());
 
                 ArrayList<Product> productsSetArray =
-                        new ArrayList<>(new HashSet<>(user.getWaitingCartProducts()));
+                        new ArrayList<>(new HashSet<>(user.getProductsOnCart()));
                 // mengurangi stok sesuai dengan barang yang dibeli user
                 for(Product product : productsSetArray) {
                     int currentAmount = this.getProduct(product.getName()).getAmount();
                     int amountBuying =
-                            Collections.frequency(user.getWaitingCartProducts(), product);
+                            Collections.frequency(user.getProductsOnCart(), product);
                     this.getProduct(product.getName()).setAmount(currentAmount - amountBuying);
 
                     if(this.getProduct(product.getName()).getAmount() == 0) {
@@ -163,19 +161,19 @@ public class Store {
                     }
                 }
 
-                user.removeAllWaitingCartProducts();
+                user.removeAllProductOnCart();
                 return true;
             }
         } else if(payment instanceof Debit) {
             // pembayaran lewat debit user
-            user.addWaitingListProduct(user.getWaitingCartProducts());
+            user.addProductOnDelivery(user.getProductsOnCart());
 
             ArrayList<Product> productsSetArray =
-                    new ArrayList<>(new HashSet<>(user.getWaitingCartProducts()));
+                    new ArrayList<>(new HashSet<>(user.getProductsOnCart()));
             // mengurangi stok sesuai dengan barang yang dibeli user
             for(Product product : productsSetArray) {
                 int currentAmount = this.getProduct(product.getName()).getAmount();
-                int amountBuying = Collections.frequency(user.getWaitingCartProducts(), product);
+                int amountBuying = Collections.frequency(user.getProductsOnCart(), product);
                 this.getProduct(product.getName()).setAmount(currentAmount - amountBuying);
 
                 if(this.getProduct(product.getName()).getAmount() == 0) {
@@ -183,7 +181,7 @@ public class Store {
                 }
             }
 
-            user.removeAllWaitingCartProducts();
+            user.removeAllProductOnCart();
             return true;
         }
 

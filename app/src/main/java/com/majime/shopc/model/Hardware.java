@@ -1,8 +1,7 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
+public abstract class Hardware extends Product implements Dimension {
 
-public class Hardware extends Product implements Dimension {
     private int weight, width, height, length;
     private String merk, type;
 
@@ -16,8 +15,19 @@ public class Hardware extends Product implements Dimension {
         this.type = "Type";
     }
 
-    public Hardware(String name, int price, int rating, int amount, int photo, int weight,
-                    int width, int height, int length, String merk, String type) {
+    public Hardware(
+            String name,
+            int price,
+            int rating,
+            int amount,
+            int photo,
+            int weight,
+            int width,
+            int height,
+            int length,
+            String merk,
+            String type
+    ) {
         super(name, price, rating, amount, photo);
         this.weight = weight;
         this.width = width;

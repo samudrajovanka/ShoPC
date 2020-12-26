@@ -1,12 +1,10 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
-
 public class Motherboard extends Hardware implements Socket{
     private int pinAmount, slotAmount;
     private String supportedCpu;
 
-    public Motherboard(int pinAmount, int slotAmount, String supportedCpu) {
+    public Motherboard() {
         super();
         this.pinAmount = Socket.PIN_AMOUNT;
         this.slotAmount = 1;

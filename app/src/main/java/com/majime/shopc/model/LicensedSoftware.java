@@ -1,6 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
 import java.util.Date;
 
 public abstract class LicensedSoftware extends Software {

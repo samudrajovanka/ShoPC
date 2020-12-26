@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
-
 public class Game extends Software{
     private String genre;
     private String developer;

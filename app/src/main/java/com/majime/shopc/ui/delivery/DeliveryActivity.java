@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.majime.shopc.R;
@@ -44,7 +43,7 @@ public class DeliveryActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void cekDelivery() {
-        if(Data.currentUser.getWaitingListProducts().size() == 0) {
+        if(Data.currentUser.getProductsOnDelivery().size() == 0) {
             containerNoItem.setVisibility(View.VISIBLE);
             rvProduct.setVisibility(View.GONE);
         } else {
@@ -57,7 +56,7 @@ public class DeliveryActivity extends AppCompatActivity implements View.OnClickL
         rvProduct.setHasFixedSize(true);
         rvProduct.setLayoutManager(new LinearLayoutManager(this));
         ProductFixAdapter productPaymentAdapter =
-                new ProductFixAdapter(Data.currentUser.getWaitingListProducts());
+                new ProductFixAdapter(Data.currentUser.getProductsOnDelivery());
         ItemOffsetDecoration itemDecoration =
                 new ItemOffsetDecoration(this, R.dimen.zero, R.dimen.small_to_normal, R.dimen.zero, R.dimen.zero, "first");
         rvProduct.addItemDecoration(itemDecoration);

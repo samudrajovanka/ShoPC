@@ -93,7 +93,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             int amountOfProduct = Data.store.getProduct(this.product.getName()).getAmount();
             if(amount > amountOfProduct) {
                 for(int i = 0; i < amount - amountOfProduct; i++) {
-                    Data.currentUser.removeWaitingCartProduct(this.product.getName());
+                    Data.currentUser.removeProductOnCart(this.product.getName());
                 }
                 productsSetArray.remove(product);
                 updateSubTotal();
@@ -117,7 +117,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         }
 
         private void setButton() {
-            if(Data.currentUser.getWaitingCartProducts().size() > 0) {
+            if(Data.currentUser.getProductsOnCart().size() > 0) {
                 btnPurchase.setEnabled(true);
             } else {
                 btnPurchase.setEnabled(false);
@@ -135,7 +135,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             switch(view.getId()) {
                 case R.id.btn_cart_delete_product:
                     for(int i = 0; i < amount; i++) {
-                        Data.currentUser.removeWaitingCartProduct(this.product.getName());
+                        Data.currentUser.removeProductOnCart(this.product.getName());
                     }
                     productsSetArray.remove(product);
                     updateSubTotal();
@@ -143,13 +143,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                     break;
                 case R.id.btn_cart_increase_amount:
                     if(amount < Data.store.getProduct(this.product.getName()).getAmount()) {
-                        Data.currentUser.addWaitingCartProduct(this.product);
+                        Data.currentUser.addProductOnCart(this.product);
                         updateSubTotal();
                     }
                     break;
                 case R.id.btn_cart_reduce_amount:
                     if(amount > 1) {
-                        Data.currentUser.removeWaitingCartProduct(this.product.getName());
+                        Data.currentUser.removeProductOnCart(this.product.getName());
                         updateSubTotal();
                     }
                     setButton();

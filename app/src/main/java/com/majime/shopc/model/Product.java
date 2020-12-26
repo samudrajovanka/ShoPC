@@ -1,11 +1,7 @@
 package com.majime.shopc.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.net.URI;
-
 public abstract class Product {
+
     private String name;
     private int price, rating, amount, photo;
 
@@ -64,10 +60,4 @@ public abstract class Product {
         this.amount = amount;
     }
 
-    public String getInfo() {
-        return "Name: " + name +
-                "\nPrice: " + price +
-                "\nRating: " + rating +
-                "\nPhoto: " + photo;
-    }
 }

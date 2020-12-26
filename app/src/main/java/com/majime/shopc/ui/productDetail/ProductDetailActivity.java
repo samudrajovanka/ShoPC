@@ -186,7 +186,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.btn_add_to_cart:
                 onBackPressed();
-                Data.currentUser.addWaitingCartProduct(product);
+                Data.currentUser.addProductOnCart(product);
                 Toast.makeText(this, R.string.alert_success_add_to_cart, Toast.LENGTH_SHORT).show();
                 break;
         }
