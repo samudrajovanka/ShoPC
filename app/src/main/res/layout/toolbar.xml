@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@drawable/bg_rect_primary_radbtm_20"
+    android:elevation="@dimen/very_small"
+    android:translationZ="90dp">
+
+    <ImageButton
+        android:id="@+id/btn_back_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/large"
+        android:background="@color/colorTransparent"
+        android:src="@drawable/ic_btn_back_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_logo_toolbar"
+        android:layout_width="@dimen/large"
+        android:layout_height="@dimen/large"
+        android:layout_marginStart="@dimen/large"
+        android:background="@drawable/logo_small"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_toolbar"
+        style="@style/TextHugeBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_to_normal"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_back_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/setting_title"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

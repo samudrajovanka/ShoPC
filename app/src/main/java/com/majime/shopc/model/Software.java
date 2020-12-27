@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
-
 public abstract class Software extends Product {
     private String version;
     private int size;
@@ -12,7 +10,7 @@ public abstract class Software extends Product {
         this.size = 0;
     }
 
-    public Software(String name, int price, int rating, int amount, URI photo,
+    public Software(String name, int price, int rating, int amount, int photo,
                     String version, int size) {
         super(name, price, rating, amount, photo);
         this.version = version;

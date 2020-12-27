@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.home.HomeFragment">
+
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="40dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorLightBlue">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_dashboard_product_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rect_primary_radbtm_20"
+                android:backgroundTint="@color/colorPrimary_50"
+                android:padding="@dimen/large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_dashboard_btn_hardware"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/large"
+                    android:layout_marginTop="@dimen/small_to_normal"
+                    android:background="@drawable/bg_rect_blue_rad_10"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/btn_dashboard_category_hardware"
+                        android:layout_width="102dp"
+                        android:layout_height="140dp"
+                        android:background="@color/colorTransparent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_dashboard_btn_hardware"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_to_normal"
+                        android:layout_marginTop="@dimen/small_to_normal"
+                        android:layout_marginEnd="@dimen/small_to_normal"
+                        android:contentDescription="@string/title_hardware"
+                        android:src="@drawable/ic_hardware"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/materialTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_to_normal"
+                        android:layout_marginTop="@dimen/small_to_normal"
+                        android:layout_marginEnd="@dimen/small_to_normal"
+                        android:layout_marginBottom="@dimen/small_to_normal"
+                        android:fontFamily="@font/ubuntu_regular"
+                        android:text="@string/title_hardware"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_large"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_dashboard_btn_hardware"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_dashboard_btn_software"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_to_normal"
+                    android:layout_marginEnd="@dimen/large"
+                    android:background="@drawable/bg_rect_blue_rad_10"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/btn_dashboard_category_software"
+                        android:layout_width="102dp"
+                        android:layout_height="140dp"
+                        android:background="@color/colorTransparent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_dashboard_btn_software"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_to_normal"
+                        android:layout_marginTop="@dimen/small_to_normal"
+                        android:layout_marginEnd="@dimen/small_to_normal"
+                        android:contentDescription="@string/title_hardware"
+                        android:src="@drawable/ic_software"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/small_to_normal"
+                        android:layout_marginTop="@dimen/small_to_normal"
+                        android:layout_marginEnd="@dimen/small_to_normal"
+                        android:layout_marginBottom="@dimen/small_to_normal"
+                        android:fontFamily="@font/ubuntu_regular"
+                        android:text="@string/title_software"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_large"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_dashboard_btn_software"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_dashboard_best_seller"
+                style="@style/TextHugeBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginTop="@dimen/large"
+                android:text="@string/title_best_seller"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container_dashboard_product_category"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_dashboard_best_seller"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginTop="@dimen/normal_to_large"
+                android:layout_marginEnd="@dimen/large"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_dashboard_best_seller"
+                tools:listitem="@layout/item_product"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

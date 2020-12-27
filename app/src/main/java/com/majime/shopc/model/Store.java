@@ -1,21 +1,24 @@
 package com.majime.shopc.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class Store {
+
     private String name, address;
     private ArrayList<Product> products;
 
     public Store() {
         this.name = "ShoPC";
         this.address = "Address";
-        this.products = new ArrayList<Product>();
+        this.products = new ArrayList<>();
     }
 
     public Store(String name, String address) {
         this.name = name;
         this.address = address;
-        this.products = new ArrayList<Product>();
+        this.products = new ArrayList<>();
     }
 
     public Store(String name, String address, ArrayList<Product> products) {
@@ -44,8 +47,39 @@ public class Store {
         return this.products;
     }
 
+    public ArrayList<Product> getProductsBestSeller() {
+        ArrayList<Product> productsBestSeller = new ArrayList<>();
+        for(Product product : this.products) {
+            if(product.getRating() >= 4) {
+                productsBestSeller.add(product);
+            }
+        }
+
+        return productsBestSeller;
+    }
+
+    public ArrayList<Product> getProductsByTitle(String title) {
+        ArrayList<Product> products = new ArrayList<>();
+
+        if(title.equals("Hardware")) {
+            for(Product product : this.products) {
+                if(product instanceof Hardware) {
+                    products.add(product);
+                }
+            }
+        } else {
+            for(Product product : this.products) {
+                if(product instanceof Software) {
+                    products.add(product);
+                }
+            }
+        }
+
+        return products;
+    }
+
     public Product getProduct(String nameProduct) {
-        for(Product product: this.products) {
+        for(Product product : this.products) {
             if(product.getName().equalsIgnoreCase(nameProduct)) {
                 return product;
             }
@@ -57,13 +91,13 @@ public class Store {
         this.products.add(product);
     }
 
-    public void addAllProduct(ArrayList<Product> products) {
+    public void addProducts(ArrayList<Product> products) {
         this.products.addAll(products);
     }
 
     public boolean removeProduct(String nameProduct) {
         int i = 0;
-        for(Product product: this.products) {
+        for(Product product : this.products) {
             if(product.getName().equalsIgnoreCase(nameProduct)) {
                 this.removeProduct(i);
 
@@ -84,7 +118,7 @@ public class Store {
         return true;
     }
 
-    public int getAmountOfProduct() {
+    public int amountOfProduct() {
         return this.products.size();
     }
 
@@ -94,8 +128,8 @@ public class Store {
         return total;
     }
 
-    public int calculate(ArrayList<Product> products, Shipping shipping, Payment payment) {
-        int total = shipping.calculate(products.size()) + payment.calculate(products.size());
+    public int calculate(int size, Shipping shipping, Payment payment) {
+        int total = shipping.calculate(size) + payment.calculate(products.size());
 
         return total;
     }
@@ -103,18 +137,55 @@ public class Store {
     public boolean buy(User user, Shipping shipping, Payment payment) {
         int totalPrice = 0;
         if(user.amountOfCartProduct() == 1)
-            totalPrice = calculate(shipping, payment);
-        else
-            totalPrice = calculate(user.getWaitingCartProducts(), shipping, payment);
+            totalPrice = user.getPriceCartProduct() + calculate(shipping, payment);
+        else totalPrice = user.getPriceCartProduct() +
+                          calculate(user.amountOfCartProduct(), shipping, payment);
 
-        if(user.getSaldo() >= totalPrice) {
-            user.setSaldo(user.getSaldo() - totalPrice);
-            user.addWaitingListProduct(user.getWaitingCartProducts());
-            user.removeAllWaitingCartProducts();
+        if(payment instanceof Cash) {
+            if(user.getSaldo() >= totalPrice) {
+                // pembelian berhasil jika saldo user tersedia
+                user.setSaldo(user.getSaldo() - totalPrice);
+                user.addProductOnDelivery(user.getProductsOnCart());
+
+                ArrayList<Product> productsSetArray =
+                        new ArrayList<>(new HashSet<>(user.getProductsOnCart()));
+                // mengurangi stok sesuai dengan barang yang dibeli user
+                for(Product product : productsSetArray) {
+                    int currentAmount = this.getProduct(product.getName()).getAmount();
+                    int amountBuying =
+                            Collections.frequency(user.getProductsOnCart(), product);
+                    this.getProduct(product.getName()).setAmount(currentAmount - amountBuying);
+
+                    if(this.getProduct(product.getName()).getAmount() == 0) {
+                        this.removeProduct(product.getName());
+                    }
+                }
+
+                user.removeAllProductOnCart();
+                return true;
+            }
+        } else if(payment instanceof Debit) {
+            // pembayaran lewat debit user
+            user.addProductOnDelivery(user.getProductsOnCart());
+
+            ArrayList<Product> productsSetArray =
+                    new ArrayList<>(new HashSet<>(user.getProductsOnCart()));
+            // mengurangi stok sesuai dengan barang yang dibeli user
+            for(Product product : productsSetArray) {
+                int currentAmount = this.getProduct(product.getName()).getAmount();
+                int amountBuying = Collections.frequency(user.getProductsOnCart(), product);
+                this.getProduct(product.getName()).setAmount(currentAmount - amountBuying);
+
+                if(this.getProduct(product.getName()).getAmount() == 0) {
+                    this.removeProduct(product.getName());
+                }
+            }
+
+            user.removeAllProductOnCart();
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
 }

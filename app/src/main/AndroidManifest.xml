@@ -9,7 +9,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.LoginActivity"
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.productDetail.ProductDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.addSaldo.AddSaldoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.payment.PaymentActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.alert.AlertActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.profile.EditProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.alert.AlertLogOutActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.alert.AlertDeleteAccountActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.delivery.DeliveryActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.splashscreen.SplashScreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

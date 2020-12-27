@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
-
 public class Game extends Software{
     private String genre;
     private String developer;
@@ -12,7 +10,7 @@ public class Game extends Software{
         this.developer = "Developer";
     }
 
-    public Game(String name, int price, int rating, int amount, URI photo, String version,
+    public Game(String name, int price, int rating, int amount, int photo, String version,
             int size, String genre, String developer) {
         super(name, price, rating, amount, photo, version, size);
         this.genre = genre;

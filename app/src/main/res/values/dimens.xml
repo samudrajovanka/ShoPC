@@ -5,6 +5,7 @@
     <dimen name="text_large">16sp</dimen>
     <dimen name="text_medium">20sp</dimen>
     <dimen name="text_huge">24sp</dimen>
+    <dimen name="zero">0dp</dimen>
     <dimen name="very_small">4dp</dimen>
     <dimen name="very_small_to_small">8dp</dimen>
     <dimen name="small">12dp</dimen>

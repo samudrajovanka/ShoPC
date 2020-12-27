@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
-
 public class Ram extends Hardware implements Memory, Frequency{
     private int frequency;
     private String DdrType;
@@ -9,11 +7,11 @@ public class Ram extends Hardware implements Memory, Frequency{
 
     public Ram() {
         this.frequency = Frequency.FREQUENCY;
-        DdrType = "DDR3";
+        this.DdrType = "DDR3";
         this.sizeMemory = Memory.SIZE_MEMORY;
     }
 
-    public Ram(String name, int price, int rating, int amount, URI photo, int weight, int width,
+    public Ram(String name, int price, int rating, int amount, int photo, int weight, int width,
             int height, int length, String merk, String type, int frequency, String ddrType,
             int sizeMemory) {
         super(name, price, rating, amount, photo, weight, width, height, length, merk, type);

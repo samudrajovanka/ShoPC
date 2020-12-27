@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class User extends Account {
     private String name, address, gender;
     private int age, saldo;
-    private ArrayList<Product> waitingListProducts;
-    private ArrayList<Product> waitingCartProducts;
+    private ArrayList<Product> productsOnDelivery;
+    private ArrayList<Product> productsOnCart;
 
     public User() {
         super();
@@ -15,8 +15,8 @@ public class User extends Account {
         this.gender = "gender";
         this.age = 0;
         this.saldo = 0;
-        this.waitingListProducts = new ArrayList<Product>();
-        this.waitingCartProducts = new ArrayList<Product>();
+        this.productsOnDelivery = new ArrayList<>();
+        this.productsOnCart = new ArrayList<>();
     }
 
     public User(String username, String password, String name, String address, String gender,
@@ -27,8 +27,8 @@ public class User extends Account {
         this.gender = gender;
         this.age = age;
         this.saldo = saldo;
-        this.waitingListProducts = new ArrayList<Product>();
-        this.waitingCartProducts = new ArrayList<Product>();
+        this.productsOnDelivery = new ArrayList<>();
+        this.productsOnCart = new ArrayList<>();
     }
 
     public String getName() {
@@ -71,12 +71,12 @@ public class User extends Account {
         this.saldo = saldo;
     }
 
-    public ArrayList<Product> getWaitingListProducts() {
-        return this.waitingListProducts;
+    public ArrayList<Product> getProductsOnDelivery() {
+        return this.productsOnDelivery;
     }
 
-    public Product getWaitingListProduct(String nameProduct) {
-        for(Product product: this.waitingListProducts) {
+    public Product getProductOnDelivery(String nameProduct) {
+        for(Product product: this.productsOnDelivery) {
             if(product.getName().equalsIgnoreCase(nameProduct)) {
                 return product;
             }
@@ -84,19 +84,19 @@ public class User extends Account {
         return null;
     }
 
-    public void addWaitingListProduct(Product product) {
-        this.waitingListProducts.add(product);
+    public void addProductOnDelivery(Product product) {
+        this.productsOnDelivery.add(product);
     }
 
-    public void addWaitingListProduct(ArrayList<Product> products) {
-        this.waitingListProducts.addAll(products);
+    public void addProductOnDelivery(ArrayList<Product> products) {
+        this.productsOnDelivery.addAll(products);
     }
 
-    public boolean removeWaitingListProduct(String nameProduct) {
+    public boolean removeProductOnDelivery(String nameProduct) {
         int i = 0;
-        for(Product product: this.waitingListProducts) {
+        for(Product product: this.productsOnDelivery) {
             if(product.getName().equalsIgnoreCase(nameProduct)) {
-                this.removeWaitingListProduct(i);
+                this.removeProductOnDelivery(i);
 
                 return true;
             }
@@ -106,35 +106,35 @@ public class User extends Account {
         return false;
     }
 
-    public boolean removeWaitingListProduct(int index) {
-        if(index < 0 || index >= this.waitingListProducts.size()) {
+    public boolean removeProductOnDelivery(int index) {
+        if(index < 0 || index >= this.productsOnDelivery.size()) {
             return false;
         }
 
-        this.waitingListProducts.remove(index);
+        this.productsOnDelivery.remove(index);
         return true;
     }
 
-    public boolean removeAllWaitingListProducts() {
-        if(this.waitingListProducts.size() == 0) return false;
+    public boolean removeAllProductOnDelivery() {
+        if(this.productsOnDelivery.size() == 0) return false;
 
-        for(int i = this.waitingListProducts.size(); i <= 0; i--) {
-            this.removeWaitingListProduct(i);
+        for(int i = this.productsOnDelivery.size(); i >= 0; i--) {
+            this.removeProductOnDelivery(i);
         }
 
         return true;
     }
 
-    public int amountOfWaitingProduct() {
-        return this.waitingListProducts.size();
+    public int amountProductOnDelivery() {
+        return this.productsOnDelivery.size();
     }
 
-    public ArrayList<Product> getWaitingCartProducts() {
-        return this.waitingCartProducts;
+    public ArrayList<Product> getProductsOnCart() {
+        return this.productsOnCart;
     }
 
-    public Product getWaitingCartProduct(String nameProduct) {
-        for(Product product: this.waitingCartProducts) {
+    public Product getProductOnCart(String nameProduct) {
+        for(Product product: this.productsOnCart) {
             if(product.getName().equalsIgnoreCase(nameProduct)) {
                 return product;
             }
@@ -142,19 +142,19 @@ public class User extends Account {
         return null;
     }
 
-    public void addWaitingCartProduct(Product product) {
-        this.waitingCartProducts.add(product);
+    public void addProductOnCart(Product product) {
+        this.productsOnCart.add(product);
     }
 
-    public void addWaitingCartProduct(ArrayList<Product> products) {
-        this.waitingCartProducts.addAll(products);
+    public void addProductOnCart(ArrayList<Product> products) {
+        this.productsOnCart.addAll(products);
     }
 
-    public boolean removeWaitingCartProduct(String nameProduct) {
+    public boolean removeProductOnCart(String nameProduct) {
         int i = 0;
-        for(Product product: this.waitingCartProducts) {
+        for(Product product: this.productsOnCart) {
             if(product.getName().equalsIgnoreCase(nameProduct)) {
-                this.removeWaitingCartProduct(i);
+                this.removeProductOnCart(i);
 
                 return true;
             }
@@ -164,27 +164,37 @@ public class User extends Account {
         return false;
     }
 
-    public boolean removeWaitingCartProduct(int index) {
-        if(index < 0 || index >= this.waitingCartProducts.size()) {
+    public boolean removeProductOnCart(int index) {
+        if(index < 0 || index >= this.productsOnCart.size()) {
             return false;
         }
 
-        this.waitingCartProducts.remove(index);
+        this.productsOnCart.remove(index);
         return true;
     }
 
-    public boolean removeAllWaitingCartProducts() {
-        if(this.waitingCartProducts.size() == 0) return false;
+    public boolean removeAllProductOnCart() {
+        if(this.productsOnCart.size() == 0) return false;
 
-        for(int i = this.waitingCartProducts.size(); i <= 0; i--) {
-            this.removeWaitingCartProduct(i);
+        for(int i = this.amountOfCartProduct(); i >= 0; i--) {
+            this.removeProductOnCart(i);
         }
 
         return true;
     }
 
     public int amountOfCartProduct() {
-        return this.waitingCartProducts.size();
+        return this.productsOnCart.size();
+    }
+
+    public int getPriceCartProduct() {
+        int total = 0;
+
+        for(Product product : this.productsOnCart) {
+            total += product.getPrice();
+        }
+
+        return total;
     }
 
 }

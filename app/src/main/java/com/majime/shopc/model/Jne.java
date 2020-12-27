@@ -1,7 +1,5 @@
 package com.majime.shopc.model;
 
-import java.util.ArrayList;
-
 public class Jne extends Shipping{
     private boolean guarantee;
 

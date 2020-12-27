@@ -1,6 +1,5 @@
 package com.majime.shopc.model;
 
-import java.net.URI;
 import java.util.Date;
 
 public class Antivirus extends LicensedSoftware{
@@ -11,7 +10,7 @@ public class Antivirus extends LicensedSoftware{
         this.developer = "developer";
     }
 
-    public Antivirus(String name, int price, int rating, int amount, URI photo,
+    public Antivirus(String name, int price, int rating, int amount, int photo,
             String version, int size, String key, Date expiration, String developer) {
         super(name, price, rating, amount, photo, version, size, key, expiration);
         this.developer = developer;
